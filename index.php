@@ -12,7 +12,8 @@ and open the template in the editor.
     <body>
         <?php
             echo "Bonjour tout le monde !" ;
-            echo "Est-ce que ça marche mieux ?"
+            echo "Est-ce que ça marche mieux ?" ;
+            echo "Attention je vais bientôt supprimer tout ça" ;
         ?>
     </body>
 </html>
