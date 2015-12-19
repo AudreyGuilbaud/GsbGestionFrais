@@ -1,0 +1,41 @@
+#connexion {
+    position : relative ;
+    margin-top: 300px;
+}
+
+#identConnect{
+    background-color : #e7e7e7;
+    height : 30px;
+    text-align: center;
+    font-variant: small-caps;
+    margin : 30px;
+    line-height:30px;
+    font-size : 24px;
+    color : #515151;
+}
+
+#mdpDiv {
+    height : 50px;
+    padding-top: 10px;
+    color : #61636b;
+    margin-left : 30.8%;
+    font-variant : small-caps;
+    font-size : 18px;
+}
+
+#loginDiv {
+    height : 50px;
+    padding-top: 10px;
+    color : #61636b;
+    margin-left : 36%;
+    font-variant : small-caps;
+    font-size : 18px;
+}
+
+#valider { 
+    margin-left : 30.8%;
+}
+
+#annuler {
+    margin-left : 8%;
+ }   
