@@ -14,7 +14,7 @@ body{
 }
 
 #entete{
-    background-color:#dfdfdf;
+    background-color:#e7e7e7;
     color : #61636b;
     height: 270px; 
     width : 100%;
@@ -45,14 +45,7 @@ body{
     padding: 0.2em;
     border-collapse: separate;
 }
-#menuGauche {
-    margin-top : 0.8em;
-    padding: 1em;
-    background-color: white;
-    color: rgb(0,85,227);
-    float: left;
-    width: 14%;
-}
+
 
 #contenu{
     border: none;
@@ -74,33 +67,6 @@ html>body #contenu{
     height:auto;
 }
 
-/* style � appliquer � la balise ul d'identifiant menulist */
-ul#menuList{
-    list-style:none;
-    margin:0px;
-    padding:0px;
-    width:98%;
-    font-size: 1em;
-}
-
-/* style � appliquer aux �l�ments de la balise ul d'identifiant menulist */
-ul#menuList li {
-    position:relative;
-    margin:0px;
-    padding:0px;
-}
-
-/* apparences des liens dans listes et sous-listes non num�rot�es */
-ul#menuList a {
-    color:rgb(0,85,227);
-    display:block;
-    text-decoration:none;
-    width:100%;
-}
-ul#menuList a:hover {
-    background: rgb(0,85,227);
-    color: white;
-}
 #contenu pre {
     width:95%;
     overflow : scroll;
