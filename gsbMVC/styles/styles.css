@@ -1,50 +1,3 @@
-/* Styles des divisions principales de la page */
-body{
-    background-color: white;
-    margin:0% 0%;
-    padding : 0.6em;
-    font-family:"Microsoft Yahei Light","Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size:0.8em;
-}
-#page {
-    background-color:white;
-    width : 80%;
-    margin : auto ;
-    padding : 0.1em;
-}
-
-#entete{
-    background-color:#e7e7e7;
-    color : #61636b;
-    height: 270px; 
-    width : 100%;
-    text-align: center;
-    font-variant : small-caps;  
-    font-size : 50px;
-    text-align: center;
-    line-height:270px;
-    vertical-align: middle;
-    float : right
-}
-
-#imgEntete {
-    height : 230px;
-    width : 380px;
-    padding : 20px;
-    background-image: url(../images/logoGSB.gif);
-    background-repeat: no-repeat;
-    float : left;
-
-}
-#pied{
-    clear : both;
-    border : solid 0.2em #980101;
-    margin-left : 18%;
-    margin-top : 1em;
-    padding:0.4em;
-    padding: 0.2em;
-    border-collapse: separate;
-}
 
 .encadreFin {
     border-color : #e7e7e7;
@@ -57,9 +10,9 @@ body{
 .bouton {
     color : white ;
     background-color:#515151;
-    width : 140px ;
+    width : 130px ;
     height : 30px ;
-    cursor : pointer;   
+    cursor : pointer;     
 }
 
 
@@ -70,18 +23,16 @@ body{
         text-align:center;
 }
 
-#contenu{
-    border: none;
-    /* permet de fixer une hauteur mini sur les navigateurs modernes */
-    min-height:27em;
-    /* pour obtenir le m�me effet sur IE, sachant que si le contenu d�passe, il
-    "poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes
-    */
-    height:27em;
+.petitTitre {
+    text-align: center;
+    margin-top : 20px;
+    margin-bottom : 10px;
+    font-variant : small-caps;
+    font-size : 20px;
+    color : #e7e7e7;
+    font-weight : bold;
+    background-color : #61636b;
 }
 
-/* pour r�tablir le mauvais effet sur les nav. modernes */
-html>body #contenu{
-    height:auto;
-}
+
 

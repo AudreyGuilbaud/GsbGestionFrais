@@ -1,6 +1,7 @@
 #connexion {
     position : relative ;
     margin-top: 300px;
+    height : 250px;
 }
 
 #identConnect{
@@ -33,9 +34,11 @@
 }
 
 #valider { 
-    margin-left : 30.8%;
+    float : left ;
+    margin-left : 30%;
 }
 
 #annuler {
-    margin-left : 8%;
+    float : right ;
+    margin-right : 35%;
  }   

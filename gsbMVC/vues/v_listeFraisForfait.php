@@ -1,38 +1,103 @@
-<div id="contenu">
-    <h2>Renseigner ma fiche de frais du mois <?php echo $numMois . "-" . $numAnnee ?></h2>
+<div id="gererFrais">
+    <div id="remplissageDonnees">
+        <div class="petitTitre">
+            Renseigner ma fiche de frais du mois <?php echo $numMois . "-" . $numAnnee ?>
+        </div>
+        <div id="contenuFraisForfait" >
 
-    <form method="POST"  action="index.php?uc=gererFrais&action=validerMajFraisForfait">
-        <div class="corpsForm">
 
-            <fieldset>
-                <legend>Eléments forfaitisés
-                </legend>
-                <?php
-                foreach ($lesFraisForfait as $unFrais) {
-                    $idFrais = $unFrais['idfrais'];
-                    $libelle = $unFrais['libelle'];
-                    $quantite = $unFrais['quantite'];
-                    ?>
+            <form method="POST"  action="index.php?uc=gererFrais&action=validerMajFraisForfait">
+                <div class="corpsForm">
+
+                    <fieldset id="fraisForfait" class="remplissage">
+                        <legend>Eléments forfaitisés</legend>
+                        <?php
+                        foreach ($lesFraisForfait as $unFrais) {
+                            $idFrais = $unFrais['idfrais'];
+                            $libelle = $unFrais['libelle'];
+                            $quantite = $unFrais['quantite'];
+                            ?>
+                            <p>
+                                <label for="idFrais"><?php echo $libelle ?></label>
+                                <input type="text" id="idFrais" name="lesFrais[<?php echo $idFrais ?>]" size="10" maxlength="5" value="<?php echo $quantite ?>" class="barreTexte" >
+                            </p>
+
+                            <?php
+                        }
+                        ?>
+                        <div>
+                            <div id="boutonAjout">
+                                <input id="ok" type="submit" value="Valider" size="18" class="bouton boutonCentre" />
+                                <input id="annuler" type="reset" value="Effacer" size="18" class="bouton boutonCentre"/>
+                            </div> 
+                        </div>
+                    </fieldset>
+                </div>
+
+
+            </form>
+
+        </div>
+        ﻿
+        <div id="contenuFraisHorsForfait" class="remplissage">
+            <form action="index.php?uc=gererFrais&action=validerCreationFrais" method="post">
+                <fieldset class="remplissage" id="fraisHorsForfait">
+                    <legend>Nouvel élément hors forfait
+                    </legend>
                     <p>
-                        <label for="idFrais"><?php echo $libelle ?></label>
-                        <input type="text" id="idFrais" name="lesFrais[<?php echo $idFrais ?>]" size="10" maxlength="5" value="<?php echo $quantite ?>" >
+                        <label for="txtDateHF">Date (jj/mm/aaaa) </label>
+                        <input type="text" id="txtDateHF" name="dateFrais" size="10" maxlength="10" value="" class="barreTexte" />
+                    </p>
+                    <p>
+                        <label for="txtMontantHF">Montant  </label>
+                        <input type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" class="barreTexte"/>
+                    </p>
+                    <p>
+                        <label for="txtLibelleHF">Libellé</label>
+                        <input type="text" id="txtLibelleHF" name="libelle" size="30" maxlength="256" value="" class="barreTexte" />
                     </p>
 
-                    <?php
-                }
-                ?>
-
-
-
-
-
-            </fieldset>
+                    <div id="boutonsBas">
+                        <div id="boutonAjout">
+                            <input id="ajouter" type="submit" value="Ajouter" size="20" class="bouton boutonCentre" />
+                            <input id="effacer" type="reset" value="Effacer" size="20" class="bouton boutonCentre"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
         </div>
-        <div class="piedForm">
-            <p>
-                <input id="ok" type="submit" value="Valider" size="20" />
-                <input id="annuler" type="reset" value="Effacer" size="20" />
-            </p> 
-        </div>
+    </div>
 
-    </form>
+
+    <div id="listeFraisHorsForfait">
+        <table class="listeLegere">
+            <caption>Descriptif des éléments hors forfait
+            </caption>
+            <tr>
+                <th class="date">Date</th>
+                <th class="libelle">Libellé</th>  
+                <th class="montant">Montant</th>  
+                <th class="action">&nbsp;</th>              
+            </tr>
+
+            <?php
+            foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
+                $libelle = $unFraisHorsForfait['libelle'];
+                $date = $unFraisHorsForfait['date'];
+                $montant = $unFraisHorsForfait['montant'];
+                $id = $unFraisHorsForfait['id'];
+                ?>		
+                <tr>
+                    <td> <?php echo $date ?></td>
+                    <td><?php echo $libelle ?></td>
+                    <td><?php echo $montant ?></td>
+                    <td><a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
+                           onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer ce frais</a></td>
+                </tr>
+                <?php
+            }
+            ?>	  
+
+        </table>
+    </div>
+</div>
