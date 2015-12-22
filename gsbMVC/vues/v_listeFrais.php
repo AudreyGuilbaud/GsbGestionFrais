@@ -1,5 +1,4 @@
 <div id="gererFrais">
-    <div id="remplissageDonnees">
         <div class="petitTitre">
             Renseigner ma fiche de frais du mois <?php echo $numMois . "-" . $numAnnee ?>
         </div>
@@ -47,7 +46,7 @@
                     <legend>Nouvel élément hors forfait
                     </legend>
                     <p>
-                        <label for="txtDateHF">Date (jj/mm/aaaa) </label>
+                        <label for="txtDateHF">Date (JJ/MM/AAAA) </label>
                         <input type="text" id="txtDateHF" name="dateFrais" size="10" maxlength="10" value="" class="barreTexte" />
                     </p>
                     <p>
@@ -55,7 +54,7 @@
                         <input type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" class="barreTexte"/>
                     </p>
                     <p>
-                        <label for="txtLibelleHF">Libellé</label>
+                        <label for="txtLibelleHF">Nature du frais</label>
                         <input type="text" id="txtLibelleHF" name="libelle" size="30" maxlength="256" value="" class="barreTexte" />
                     </p>
 
@@ -70,18 +69,18 @@
                 </fieldset>
             </form>
         </div>
-    </div>
 
 
     <div id="listeFraisHorsForfait">
         <table class="listeLegere">
-            <caption>Descriptif des éléments hors forfait
-            </caption>
+            <div class="petitTitre">
+                Descriptif des éléments hors forfait
+            </div>
             <tr>
-                <th class="date">Date</th>
-                <th class="libelle">Libellé</th>  
-                <th class="montant">Montant</th>  
-                <th class="action">&nbsp;</th>              
+                <th class="titreColonne">Date</th>
+                <th class="titreColonne">Montant</th> 
+                <th class="titreColonne">Libellé</th>  
+                <th>&nbsp;</th>              
             </tr>
 
             <?php
@@ -92,11 +91,11 @@
                 $id = $unFraisHorsForfait['id'];
                 ?>		
                 <tr>
-                    <td> <?php echo $date ?></td>
-                    <td><?php echo $libelle ?></td>
-                    <td><?php echo $montant ?></td>
-                    <td><a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
-                           onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer ce frais</a></td>
+                    <td class="ligneFraisHFPetit"> <?php echo $date ?></td>
+                    <td class="ligneFraisHFPetit"><?php echo $montant ?> euros</td>
+                    <td class="ligneFraisHF"><?php echo $libelle ?></td>                    
+                    <td class="ligneFraisHFSuppr"><a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
+                           onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer</a></td>
                 </tr>
                 <?php
             }
