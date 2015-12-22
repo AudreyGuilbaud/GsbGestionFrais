@@ -55,16 +55,16 @@
     margin-top : 45px;
 }
 
-#boutonValid, #boutonAnnul {
+.boutonValid, .boutonAnnul {
     width : 130px;
     height : 30px;
 }
 
-#boutonValid {
+.boutonValid {
     float : left;
 }
 
-#boutonAnnul{
+.boutonAnnul{
     float : right;
 }
 

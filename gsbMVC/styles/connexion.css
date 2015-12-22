@@ -1,44 +1,21 @@
-#connexion {
+#formCo {
+    height : 150px;
+    text-align: left ;
     position : relative ;
-    margin-top: 300px;
-    height : 250px;
+    width : 28%;
+    margin-left: auto;
+    margin-right: auto;
+    color : #515151 ;
+    font-size : 14px;
+    font-weight : bold;
+    padding : 10px;  
 }
 
-#identConnect{
-    background-color : #e7e7e7;
-    height : 30px;
-    text-align: center;
-    font-variant: small-caps;
-    margin : 30px;
-    line-height:30px;
-    font-size : 24px;
-    color : #515151;
+#login, #mdp {
+    width : 100%;
 }
 
-#mdpDiv {
-    height : 50px;
-    padding-top: 10px;
-    color : #61636b;
-    margin-left : 30.8%;
-    font-variant : small-caps;
-    font-size : 18px;
+#connexion {
+    margin-top :300px;
+    padding : 10px ;
 }
-
-#loginDiv {
-    height : 50px;
-    padding-top: 10px;
-    color : #61636b;
-    margin-left : 36%;
-    font-variant : small-caps;
-    font-size : 18px;
-}
-
-#valider { 
-    float : left ;
-    margin-left : 30%;
-}
-
-#annuler {
-    float : right ;
-    margin-right : 35%;
- }   

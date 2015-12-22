@@ -3,8 +3,6 @@
             Renseigner ma fiche de frais du mois <?php echo $numMois . "-" . $numAnnee ?>
         </div>
         <div id="contenuFraisForfait" >
-
-
             <form method="POST"  action="index.php?uc=gererFrais&action=validerMajFraisForfait">
                 <div class="corpsForm">
 
@@ -25,10 +23,10 @@
                         }
                         ?>
                         <div id="boutonsBas1">
-                            <div id="boutonValid">
+                            <div class="boutonValid">
                                 <input id="ajouter" type="submit" value="Valider" size="20" class="bouton boutonCentre" />
                             </div>
-                            <div id="boutonAnnul">
+                            <div class="boutonAnnul">
                                 <input id="effacer" type="reset" value="Effacer" size="20" class="bouton boutonCentre"/>
                             </div>
                         </div>
@@ -59,10 +57,10 @@
                     </p>
 
                     <div id="boutonsBas2">
-                        <div id="boutonValid">
+                        <div class="boutonValid">
                             <input id="ajouter" type="submit" value="Ajouter" size="20" class="bouton boutonCentre" />
                         </div>
-                        <div id="boutonAnnul">
+                        <div class="boutonAnnul">
                             <input id="effacer" type="reset" value="Effacer" size="20" class="bouton boutonCentre"/>
                         </div>
                     </div>

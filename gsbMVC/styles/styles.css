@@ -10,7 +10,6 @@
 .bouton {
     color : white ;
     background-color:#515151;
-    width : 130px ;
     height : 30px ;
     cursor : pointer;     
 }
@@ -34,5 +33,10 @@
     background-color : #61636b;
 }
 
-
+.valider, .annuler {
+    width : 40%;
+}
+.annuler {
+    float : right ;
+}
 
