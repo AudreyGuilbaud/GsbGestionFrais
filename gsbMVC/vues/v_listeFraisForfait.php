@@ -25,11 +25,13 @@
                             <?php
                         }
                         ?>
-                        <div>
-                            <div id="boutonAjout">
-                                <input id="ok" type="submit" value="Valider" size="18" class="bouton boutonCentre" />
-                                <input id="annuler" type="reset" value="Effacer" size="18" class="bouton boutonCentre"/>
-                            </div> 
+                        <div id="boutonsBas1">
+                            <div id="boutonValid">
+                                <input id="ajouter" type="submit" value="Valider" size="20" class="bouton boutonCentre" />
+                            </div>
+                            <div id="boutonAnnul">
+                                <input id="effacer" type="reset" value="Effacer" size="20" class="bouton boutonCentre"/>
+                            </div>
                         </div>
                     </fieldset>
                 </div>
@@ -57,9 +59,11 @@
                         <input type="text" id="txtLibelleHF" name="libelle" size="30" maxlength="256" value="" class="barreTexte" />
                     </p>
 
-                    <div id="boutonsBas">
-                        <div id="boutonAjout">
+                    <div id="boutonsBas2">
+                        <div id="boutonValid">
                             <input id="ajouter" type="submit" value="Ajouter" size="20" class="bouton boutonCentre" />
+                        </div>
+                        <div id="boutonAnnul">
                             <input id="effacer" type="reset" value="Effacer" size="20" class="bouton boutonCentre"/>
                         </div>
                     </div>

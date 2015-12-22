@@ -4,7 +4,7 @@
     border-color : #e7e7e7;
     font-size : 14px;
     color : #515151;
-    
+
 }
 #contenuFraisForfait, #contenuFraisHorsForfait {
     width : 49%;
@@ -13,18 +13,18 @@
     border-style: solid;
     border-color : black ;
     */
-    
+
 }
 
 #contenuFraisHorsForfait {
     float : right ;
     height : 240px;
-    
+
 }
 #contenuFraisForfait{
     float : left ;
     margin-top : 10px;
-   
+
 }
 
 #listeFraisHorsForfait{
@@ -40,6 +40,7 @@
     border-color : black ;
     */
     height : 500px ;
+
 }
 
 .barreTexte {
@@ -52,10 +53,27 @@
     padding-right: 10%;
 }
 
-#boutonsBas {
+#boutonsBas1 {
+    margin-top : 15px;
+}
+
+#boutonsBas2 {
     margin-top : 45px;
 }
 
 #boutonAjout{
+    float : right;
+}
+
+#boutonValid, #boutonAnnul {
+    width : 130px;
+    height : 30px;
+}
+
+#boutonValid {
+    float : left;
+}
+
+#boutonAnnul{
     float : right;
 }
