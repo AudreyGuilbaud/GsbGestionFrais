@@ -30,14 +30,8 @@
 
                     </select>
                 </p>
-
-
-                <div class="boutonValid">
-                    <input id="ok" type="submit" value="Valider" size="20" class="bouton"/>
-                </div>
-                <div class="boutonAnnul">
-                    <input id="annuler" type="reset" value="Effacer" size="20" class="bouton" />
-                </div>
+                <input id="ok" type="submit" value="Valider" size="20" class="bouton valider"/>              
+                <input id="annuler" type="reset" value="Effacer" size="20" class="bouton annuler" />
         </div>
     </div>
 </form>

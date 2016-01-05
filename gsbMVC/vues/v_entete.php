@@ -16,6 +16,6 @@
         <div id="entete">
             <div id="imgEntete">                 
             </div>
-            <?php echo"Suivi du remboursement des frais" ?>
+            <?php echo"Suivi du Remboursement des Frais" ?>
         </div>
         <div id="page">

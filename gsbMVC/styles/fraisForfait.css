@@ -1,19 +1,13 @@
 .remplissage {
     margin-top : 10px;
     height : 200px;
-    border-color : #e7e7e7;
+    border-color : #d7fcff;
     font-size : 14px;
     color : #515151;
     font-weight : bold;
 }
 #contenuFraisForfait, #contenuFraisHorsForfait {
     width : 49%;
-}
-
-#remplissageDonnees {
-    border : 1px;
-    border-style: solid;
-    border-color : black ;
 }
 
 #contenuFraisHorsForfait {
@@ -24,14 +18,12 @@
 #contenuFraisForfait{
     float : left ;
     margin-top : 10px;
-
 }
 
 #listeFraisHorsForfait{
     float : left ;
     width : 100%;
     margin-top : 20px;
-
 }
 
 #gererFrais {
@@ -55,18 +47,6 @@
     margin-top : 45px;
 }
 
-.boutonValid, .boutonAnnul {
-    width : 130px;
-    height : 30px;
-}
-
-.boutonValid {
-    float : left;
-}
-
-.boutonAnnul{
-    float : right;
-}
 
 .ligneFraisHF {
     text-align:left ;
@@ -84,7 +64,7 @@ td.ligneFraisHF, td.ligneFraisHFPetit, td.ligneFraisHFSuppr {
     text-align:center;
     padding:5px;
     height :20px;
-    border-color : #cbd0e3;
+    border-color : #d7fcff;
     border-style: solid; 
     border-width: 1px;
     padding-left : 10px ;
@@ -102,7 +82,7 @@ td.ligneFraisHF {
 }
 
 td.ligneFraisHFSuppr {
-    background-color:#e7e7e7;
+    background-color:#d7fcff;
     
 }
 
@@ -119,14 +99,14 @@ td.ligneFraisHFSuppr a {
 
 td.ligneFraisHFSuppr a:hover {        
     text-decoration : none;
-    color : #e7e7e7;
+    color : #d7fcff;
 }
 
 .titreColonne {
-    background-color :#e7e7e7;
+    background-color :#d7fcff;
     color : #515151;
     height : 30px;
-    border-color : #cbd0e3;
+    border-color : #d7fcff;
     border-style: solid; 
     border-width: 1px;
 }
