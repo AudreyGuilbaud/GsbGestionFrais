@@ -60,11 +60,9 @@
     </div>
 
 
-    <div id="listeFraisHorsForfait">
-        <table class="listeLegere">
-            <div class="petitTitre">
-                Descriptif des éléments hors forfait
-            </div>
+    <div class="divPlein">
+        <table>
+            <caption class="petitTitre">Descriptif des éléments hors forfait </caption>
             <tr>
                 <th class="titreColonne">Date</th>
                 <th class="titreColonne">Montant</th> 

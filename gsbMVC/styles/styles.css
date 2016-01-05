@@ -28,9 +28,21 @@
     margin-bottom : 10px;
     font-variant : small-caps;
     font-size : 20px;
-    color : #d7fcff;
+    color : #ffffff;
     font-weight : bold;
     background-color : #61636b;
+}
+
+.petitTitre2 {
+    text-align: center;
+    margin-top : 20px;
+    margin-bottom : 10px;
+    font-variant : small-caps;
+    font-size : 20px;
+    color : #61636b;
+    font-weight : bold;
+    background-color : #ffffff;
+    border : solid 1px #61636b;
 }
 
 .valider, .annuler {
