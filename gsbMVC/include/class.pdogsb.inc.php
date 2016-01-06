@@ -52,15 +52,15 @@ class PdoGsb {
     }
 
     /**
-     * Retourne les informations d'un visiteur
+     * Retourne les informations d'un utilisateur
 
      * @param $login 
      * @param $mdp
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif 
      */
-    public function getInfosVisiteur($login, $mdp) {
-        $req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom from visiteur 
-		where visiteur.login='$login' and visiteur.mdp='$mdp'";
+    public function getInfosUtilisateur($login, $mdp) {
+        $req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom from utilisateur 
+		where utilisateur.login='$login' and utilisateur.mdp='$mdp'";
         $rs = PdoGsb::$monPdo->query($req);
         $ligne = $rs->fetch();
         return $ligne;
