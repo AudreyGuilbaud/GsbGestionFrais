@@ -7,7 +7,7 @@ $(function () {
             //showOn: "button",
             //buttonImage: "images/CommonDialog.ico",
             //buttonImageOnly: false,
-            altField: "#datepicker",
+            //altField: "#datepicker",
             closeText: 'Fermer',
             prevText: 'Précédent',
             nextText: 'Suivant',
@@ -28,6 +28,7 @@ $(function () {
                     $(this).datepicker('setDate', new Date(year, month));
                 }
             }
+            
         });
         $(".date").focus(function () {
             $(".ui-datepicker-calendar").hide();

@@ -8,7 +8,7 @@
         </form>
         <div class="selection">
             Sélectionnez un visiteur :
-            <form action="index.php?uc=" method="post">
+            <form action="index.php?uc=validerFiches&action=afficherFichesVisiteur" method="post">
                 <p>
                     <label for="lstVisiteur" accesskey="n">Visiteur : </label>
                     <select id="lstVisiteur" name="lstVisiteur">
@@ -17,9 +17,12 @@
                             $id = $unVisiteur['id'];
                             $prenom = $unVisiteur['prenom'];
                             $nom = $unVisiteur['nom'];
-                        ?>   
+                        ?>
+         
                         <option value="<?php echo $id ?>"><?php echo $prenom . " " . $nom ?> </option>
+                        
                         <?php } ?>
+                        
                     </select>
                 </p>
                 <input id="ok" type="submit" value="Valider" class="bouton valider"/>              
