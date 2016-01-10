@@ -1,0 +1,124 @@
+.remplissage {
+    margin-top : 10px;
+    height : 200px;
+    border-color : #d7fcff;
+    font-size : 14px;
+    color : #515151;
+    font-weight : bold;
+}
+#contenuFraisForfait, #contenuFraisHorsForfait {
+    width : 49%;
+}
+
+#contenuFraisHorsForfait {
+    float : right ;
+    height : 240px;
+
+}
+#contenuFraisForfait{
+    float : left ;
+    margin-top : 10px;
+}
+
+.divPlein{
+    float : left ;
+    width : 100%;
+    margin-top : 20px;
+}
+
+#gererFrais {
+    height : 500px ;
+}
+
+.barreTexte {
+    float : right ;
+}
+
+#fraisForfait,#fraisHorsForfait {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#boutonsBas1 {
+    margin-top : 15px;
+}
+
+#boutonsBas2 {
+    margin-top : 45px;
+}
+
+
+.ligneFraisHF {
+    text-align:left ;
+    list-style-type:none;
+}
+
+td.ligneFraisHF, td.ligneFraisHFPetit, td.ligneFraisHFSuppr {
+
+    display:inline-block;
+    display:block;
+    float:left;       
+    background-color:white;
+    color:#515151;
+    text-decoration:none;
+    text-align:center;
+    padding:5px;
+    height :20px;
+    border-color : #d7fcff;
+    border-style: solid; 
+    border-width: 1px;
+    padding-left : 10px ;
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+td.ligneFraisHFPetit, td.ligneFraisHFSuppr {    
+    width:20%;   
+}
+
+td.ligneFraisHF {
+    width:60%;
+}
+
+td.ligneFraisHFSuppr {
+    background-color:#d7fcff;
+    
+}
+
+td.ligneFraisHFSuppr:hover {
+    background-color:#515151;
+    
+}
+
+td.ligneFraisHFSuppr a {        
+    text-decoration : none;
+    color : #515151;
+
+}
+
+td.ligneFraisHFSuppr a:hover {        
+    text-decoration : none;
+    color : #d7fcff;
+}
+
+.titreColonne {
+    background-color :#d7fcff;
+    color : #515151;
+    height : 30px;
+    border-color : #d7fcff;
+    border-style: solid; 
+    border-width: 1px;
+}
+
+.tableauLeger {
+    color : #515151;
+    font-weight : bold;
+}
+
+.titreTableauLeger {
+    color : #515151;
+    text-align : left;
+    font-variant : small-caps ;
+    font-size : 18px;
+}

@@ -311,6 +311,19 @@ class PdoGsb {
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
         PdoGsb::$monPdo->exec($req);
     }
+    
+    /**
+     * Retourne la liste des visiteurs.
+     * @return tableau associatif des visiteurs avec id, prenom et nom.
+     */
+    public function getLesVisiteurs() {
+        $req = "SELECT utilisateur.id as id, utilisateur.prenom as prenom, utilisateur.nom as nom
+                FROM utilisateur
+                WHERE idType = 1" ;
+        $res = PdoGsb::$monPdo->query($req);
+        $lesLignes = $res->fetchAll();
+        return $lesLignes;
+    }
 
 }
 ?>

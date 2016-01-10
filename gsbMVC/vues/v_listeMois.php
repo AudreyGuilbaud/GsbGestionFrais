@@ -3,7 +3,7 @@
         Mes fiches de frais 
     </div>
     <div id="calqueMois" class="encadreFin">
-        <div id="selectionMois">
+        <div class="selection">
             Sélectionnez un mois :
             <form action="index.php?uc=etatFrais&action=voirEtatFrais" method="post">
 

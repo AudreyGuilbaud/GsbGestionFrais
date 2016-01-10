@@ -7,7 +7,7 @@
         <link href="./styles/menu.css" rel="stylesheet" type="text/css" />
         <link href="./styles/connexion.css" rel="stylesheet" type="text/css" />
         <link href="./styles/structure.css" rel="stylesheet" type="text/css" />
-        <link href="./styles/fraisForfait.css" rel="stylesheet" type="text/css" />
+        <link href="./styles/fraisVisiteur.css" rel="stylesheet" type="text/css" />
         <link href="./styles/etatFrais.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
     </head>

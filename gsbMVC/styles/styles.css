@@ -7,21 +7,6 @@
     font-weight: bold;
 }
 
-.bouton {
-    color : white ;
-    background-color:#515151;
-    height : 30px ;
-    cursor : pointer;     
-}
-
-
-.bouton:hover {
-        background-color:#d7fcff;
-        color:#515151;
-        text-decoration:none;
-        text-align:center;
-}
-
 .petitTitre {
     text-align: center;
     margin-top : 20px;
@@ -45,6 +30,21 @@
     border : solid 1px #61636b;
 }
 
+.bouton {
+    color : white ;
+    background-color:#515151;
+    height : 30px ;
+    cursor : pointer;     
+}
+
+
+.bouton:hover {
+        background-color:#d7fcff;
+        color:#515151;
+        text-decoration:none;
+        text-align:center;
+}
+
 .valider, .annuler {
     width : 40%;
 }
@@ -54,4 +54,11 @@
 
 .valider {
     float : left;
+}
+
+.autreRecherche {
+    float : right ;
+    width : 200px;
+    margin-top : 90px;
+    margin-right : 20px;
 }

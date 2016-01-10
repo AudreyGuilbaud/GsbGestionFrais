@@ -7,7 +7,7 @@
     </div>  
     <ul class="menuHaut">			
         <li class="menuHaut">
-            <a href="index.php?uc=validerFiches" title="Validation fiches de frais ">Validation des fiches de frais</a>
+            <a href="index.php?uc=validerFiches&action=choixVisiteur" title="Validation fiches de frais ">Validation des fiches de frais</a>
         </li>
         <li class="menuHaut">
             <a href="index.php?uc=suivreFiches" title="Suivre fiches de frais">Suivi des fiches de frais</a>
