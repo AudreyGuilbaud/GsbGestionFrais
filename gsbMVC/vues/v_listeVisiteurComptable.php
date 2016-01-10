@@ -1,9 +1,9 @@
-<div id="etatFrais">
+<div id="selectionVisiteur">
     <div class="petitTitre">
-        Mes fiches de frais 
+        Recherche par VISITEUR
     </div>
     <div id="calqueVisiteur" class="encadreFin">
-        <form action="index.php?uc=" method="post">    
+        <form action="index.php?uc=validerFiches&action=choixMois" method="post">    
             <input id="visiteur" type="submit" value="Rechercher par MOIS" class="bouton autreRecherche" />
         </form>
         <div class="selection">

@@ -10,7 +10,19 @@ switch ($action) {
     case 'choixVisiteur' : {
         $lesVisiteurs = $pdo->getLesVisiteurs();
         include("vues/v_listeVisiteurComptable.php");
+        break;
     }
+    
+    case 'choixMois' : {
+        include("vues/v_listeMoisComptable.php");
+        break;
+    }
+    
+    default : {
+        $lesVisiteurs = $pdo->getLesVisiteurs();
+        include("vues/v_listeVisiteurComptable.php");
+        break;
+    }             
 }
 
 
