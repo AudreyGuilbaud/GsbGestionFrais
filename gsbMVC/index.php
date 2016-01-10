@@ -23,6 +23,15 @@ switch ($uc) {
             include("controleurs/c_etatFrais.php");
             break;
         }
+    case 'validerFiches' : {
+            include("controleurs/c_validerFiches.php");
+            break;
+        }
+    case 'suivreFiches' : {
+            include("controleurs/c_suivreFiches.php");
+            break;
+        }
+    
 }
 include("vues/v_pied.php");
 ?>
