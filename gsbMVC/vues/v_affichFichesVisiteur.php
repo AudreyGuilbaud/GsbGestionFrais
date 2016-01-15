@@ -7,7 +7,7 @@
     ?>
     <div class = "divPlein">
         <table>
-            <caption class = "petitTitre">Descriptif des éléments hors forfait </caption>
+            <caption class = "petitTitre">Fiches de frais à traiter pour <?php echo $prenom." ".$nom ?> </caption>
             <tr>
                 <th class = "titreColonne">Mois</th>
                 <th class = "titreColonne">Dernière modification</th>
@@ -21,6 +21,7 @@
         $mois = $uneFiche['mois'];
         $numAnnee = substr($mois, 0, 4);
         $numMois = substr($mois, 4, 2);
+        
         ?>   	
                 <tr>
                     <td class="ligneFraisHFPetit"> <?php echo $numMois . "/" . $numAnnee ?></td>

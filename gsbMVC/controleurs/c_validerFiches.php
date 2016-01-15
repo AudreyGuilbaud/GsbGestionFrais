@@ -21,7 +21,10 @@ switch ($action) {
     case 'afficherFichesVisiteur' : {
             $lesVisiteurs = $pdo->getLesVisiteurs();
             include("vues/v_listeVisiteurComptable.php");
-            $leVisiteur = $_REQUEST['lstVisiteur'];
+            $leVisiteur = $_REQUEST['lstVisiteur'];          
+            $leVisiteurSelec = $pdo->getNomPrenomUser($leVisiteur);
+            $prenom = $leVisiteurSelec['prenom'];
+            $nom = $leVisiteurSelec['nom'];
             $lesFichesParVisiteur = $pdo->getLesFichesParVisiteur($leVisiteur);
             include("vues/v_affichFichesVisiteur.php");
             break;

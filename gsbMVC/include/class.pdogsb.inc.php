@@ -325,15 +325,35 @@ class PdoGsb {
         return $lesLignes;
     }
 
+    /**
+     * 
+     * @param string $idVisiteur 
+     * @return tableau associatif retournant toutes les fiches à traiter ayant le
+     * statut CL pour tous les mois pour le visiteur donné.
+     */
     public function getLesFichesParVisiteur($idVisiteur) {
         $req = "SELECT ficheFrais.dateModif as dateModif, etat.libelle as libEtat,
                 fichefrais.mois as mois
                 FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
                 WHERE fichefrais.idvisiteur ='$idVisiteur'
-                AND idEtat='CL'";                  
+                AND idEtat='CL'";
         $res = PdoGsb::$monPdo->query($req);
         $lesLignes = $res->fetchAll();
         return $lesLignes;
+    }
+
+    /**
+     * Retourne le nom et le prenom du visiteur selon son id.
+     * @param string $idVisiteur
+     */
+    public function getNomPrenomUser($idVisiteur) {
+        $req = "SELECT utilisateur.nom, utilisateur.prenom
+                FROM utilisateur
+                WHERE id = '$idVisiteur'";
+        $res = PdoGsb::$monPdo->query($req);
+        $laLigne = $res->fetch();
+        return $laLigne ;
+                
     }
 
 }
