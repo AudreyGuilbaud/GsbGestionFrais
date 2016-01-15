@@ -9,7 +9,7 @@
 
                 <p>
 
-                    <label for="lstMois" accesskey="n">Mois : </label>
+                    <label for="lstMois" accesskey="n">Mois disponibles : </label>
                     <select id="lstMois" name="lstMois">
                         <?php
                         foreach ($lesMois as $unMois) {
@@ -30,8 +30,8 @@
 
                     </select>
                 </p>
-                <input id="ok" type="submit" value="Valider" size="20" class="bouton valider"/>              
-                <input id="annuler" type="reset" value="Effacer" size="20" class="bouton annuler" />
+                <input id="ok" type="submit" value="Valider" class="bouton valider"/>              
+                <input id="annuler" type="reset" value="Effacer" class="bouton annuler" />
         </div>
     </div>
 </form>

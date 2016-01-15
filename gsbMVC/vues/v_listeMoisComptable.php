@@ -8,10 +8,12 @@
         </form>
         <div class="selection">
             Sélectionnez un mois :
-            <form action="index.php?uc=" method="post">
+            <form action="index.php?uc=validerFiches&action=afficherFichesMois" method="post">
                 <p>
-                    <label for="lstMoisComptable" accesskey="n">Mois : </label>
-                    <input name="lstMoisComptable" type="text" class="date" id="datepicker"/>
+                    <label for="txtMoisComptable" accesskey="n">Mois (MM) : </label>
+                    <input size="5" name="txtMoisComptable"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="txtAnneeComptable" accesskey="n">Année (YYYY) : </label>
+                    <input size="5" name="txtAnneeComptable"/>
                 </p>
                 <input id="ok" type="submit" value="Valider" class="bouton valider"/>              
                 <input id="annuler" type="reset" value="Effacer" class="bouton annuler" />

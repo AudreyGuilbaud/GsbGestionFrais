@@ -355,6 +355,18 @@ class PdoGsb {
         return $laLigne ;
                 
     }
+    
+    public function getLesFichesParMois($idMois) {
+        $req = "SELECT ficheFrais.dateModif as dateModif, etat.libelle as libEtat,
+                utilisateur.nom, utilisateur.prenom
+                FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
+                JOIN utilisateur ON utilisateur.id = ficheFrais.idvisiteur
+                WHERE fichefrais.mois ='$idMois'
+                AND idEtat='CL'";
+        $res = PdoGsb::$monPdo->query($req);
+        $lesLignes = $res->fetchAll();
+        return $lesLignes;
+    }
 
 }
 ?>
