@@ -5,17 +5,18 @@ if (!isset($_REQUEST['action'])) {
 }
 $action = $_REQUEST['action'];
 include("vues/v_sommaireComptable.php");
+include("vues/v_titreValid.html");
 
 switch ($action) {
     case 'choixFiche' : {
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_rechercheComptable.php");
+            include("vues/v_rechercheComptableValid.php");
             break;
         }
 
     case 'afficherFiches' : {
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_rechercheComptable.php");
+            include("vues/v_rechercheComptableValid.php");
             $leVisiteur = $_REQUEST['lstVisiteur'];
             $leMois = $_REQUEST['lstMoisComptable'];
             $lAnnee = $_REQUEST['txtAnneeComptable'];
@@ -29,7 +30,7 @@ switch ($action) {
                     $leVisiteurSelec = $pdo->getNomPrenomUser($leVisiteur);
                     $prenom = $leVisiteurSelec['prenom'];
                     $nom = $leVisiteurSelec['nom'];
-                    $lesFichesParVisiteur = $pdo->getLesFichesParVisiteur($leVisiteur);
+                    $lesFichesParVisiteur = $pdo->getLesFichesParVisiteurValid($leVisiteur);
                     if (empty($lesFichesParVisiteur)) {
                         ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce visiteur.");
                         include("vues/v_absenceDonnees.php");
@@ -40,7 +41,7 @@ switch ($action) {
                     if ((empty($leVisiteur) ) && ( (!empty($leMois)) && (!empty($lAnnee)) )) {
                         if (estDateValide($laDate)) {
                             $leMoisReq = getMois($laDate);
-                            $lesFichesParMois = $pdo->getLesFichesParMois($leMoisReq);
+                            $lesFichesParMois = $pdo->getLesFichesParMoisValid($leMoisReq);
                             if (empty($lesFichesParMois)) {
                                 ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce mois.");
                                 include("vues/v_absenceDonnees.php");
@@ -70,7 +71,7 @@ switch ($action) {
         }
     default : {
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_rechercheComptable.php");
+            include("vues/v_rechercheComptableValid.php");
             break;
         }
 }

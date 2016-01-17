@@ -1,6 +1,6 @@
 <div class = "divPlein">
     <table>
-        <caption class = "petitTitre">Fiches de frais à traiter pour <?php echo $prenom . " " . $nom ?> </caption>
+        <caption class = "petitTitre2">Fiches de frais à traiter pour <?php echo $prenom . " " . $nom ?> </caption>
         <tr>
             <th class = "titreColonne">Mois</th>
             <th class = "titreColonne">Dernière modification</th>
@@ -19,7 +19,7 @@
                 <td class="ligneFraisHFPetit"> <?php echo $numMois . "/" . $numAnnee ?></td>
                 <td class="ligneFraisHFPetit"><?php echo dateAnglaisVersFrancais($dateModif) ?> </td>
                 <td class="ligneFraisHF"><?php echo $libEtat ?></td>                    
-                <td class="ligneFraisHFSuppr"><a href="index.php?uc=validerFiches&action=afficherFiche">Accéder</a></td> 
+                <td class="ligneFraisHFSuppr"><a href="index.php?uc=validerFiches">Accéder</a></td> 
             </tr>
             <?php
         }

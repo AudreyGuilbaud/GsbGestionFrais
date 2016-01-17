@@ -1,9 +1,9 @@
 <div id="selectionVisiteur">
-    <div class="petitTitre">
+    <div class="petitTitre2">
         Rechercher une fiche par visiteur et/ou par mois
     </div>
     <div id="calque" class="encadreFin calque">             
-        <form action="index.php?uc=validerFiches&action=afficherFiches" method="post">
+        <form action="index.php?uc=suivreFiches&action=afficherFiches" method="post">
             <div class="selection selectionFiche1">
                 Sélectionnez un visiteur
                 <p>
@@ -54,3 +54,4 @@
         </form>
     </div>
 </div>
+

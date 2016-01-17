@@ -1,6 +1,6 @@
 <div class = "divPlein">
     <table>
-        <caption class = "petitTitre">Fiches de frais à traiter pour le mois :  <?php echo $MoisAnnee ?> </caption>
+        <caption class = "petitTitre2">Fiches de frais à traiter pour le mois :  <?php echo $MoisAnnee ?> </caption>
         <tr>
             <th class = "titreColonne">Visiteur</th>
             <th class = "titreColonne">Dernière modification</th>
