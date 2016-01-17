@@ -4,17 +4,20 @@ if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = 'choixFiche';
 }
 $action = $_REQUEST['action'];
-include("vues/v_sommaireComptable.php");
-include("vues/v_titreValid.html");
+
 
 switch ($action) {
     case 'choixFiche' : {
+            include("vues/v_sommaireComptable.php");
+            include("vues/v_titreValid.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
             include("vues/v_rechercheComptableValid.php");
             break;
         }
 
     case 'afficherFiches' : {
+            include("vues/v_sommaireComptable.php");
+            include("vues/v_titreValid.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
             include("vues/v_rechercheComptableValid.php");
             $leVisiteur = $_REQUEST['lstVisiteur'];
@@ -54,7 +57,8 @@ switch ($action) {
                         }
                     } else {
                         if ((!empty($leVisiteur) ) && ( (!empty($leMois)) || (!empty($lAnnee)) )) {
-                            echo " à coder ";
+                            $_REQUEST['action'] = 'ficheSelectionnee';
+                            include("controleurs/c_validerFiches.php");
                         } else {
                             if (((!empty($leVisiteur) ) && ( (!empty($leMois)) || (empty($lAnnee)) )) ||
                                     ((!empty($leVisiteur) ) && ( (empty($leMois)) || (!empty($lAnnee)) )) ||
@@ -69,7 +73,13 @@ switch ($action) {
             }
             break;
         }
+    case 'ficheSelectionnee' : {
+            echo "à coder";
+            break;
+        }
     default : {
+            include("vues/v_sommaireComptable.php");
+            include("vues/v_titreValid.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
             include("vues/v_rechercheComptableValid.php");
             break;
