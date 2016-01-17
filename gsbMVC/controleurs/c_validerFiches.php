@@ -1,55 +1,76 @@
 <?php
 
 if (!isset($_REQUEST['action'])) {
-    $_REQUEST['action'] = 'choixVisiteur';
+    $_REQUEST['action'] = 'choixFiche';
 }
 $action = $_REQUEST['action'];
 include("vues/v_sommaireComptable.php");
 
 switch ($action) {
-    case 'choixVisiteur' : {
+    case 'choixFiche' : {
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_listeVisiteurComptable.php");
+            include("vues/v_rechercheComptable.php");
             break;
         }
 
-    case 'choixMois' : {
-            include("vues/v_listeMoisComptable.php");
-            break;
-        }
-
-    case 'afficherFichesVisiteur' : {
+    case 'afficherFiches' : {
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_listeVisiteurComptable.php");
+            include("vues/v_rechercheComptable.php");
             $leVisiteur = $_REQUEST['lstVisiteur'];
-            $leVisiteurSelec = $pdo->getNomPrenomUser($leVisiteur);
-            $prenom = $leVisiteurSelec['prenom'];
-            $nom = $leVisiteurSelec['nom'];
-            $lesFichesParVisiteur = $pdo->getLesFichesParVisiteur($leVisiteur);
-            include("vues/v_affichFichesVisiteur.php");
-            break;
-        }
-
-    case 'afficherFichesMois' : {
-            include("vues/v_listeMoisComptable.php");
-            $leMois = $_REQUEST['txtMoisComptable'];
+            $leMois = $_REQUEST['lstMoisComptable'];
             $lAnnee = $_REQUEST['txtAnneeComptable'];
             $laDate = "01/" . $leMois . "/" . $lAnnee;
-            $MoisAnnee = $leMois."/".$lAnnee ;
-            if (estDateValide($laDate)) {
-                $leMoisReq = getMois($laDate);
-                $lesFichesParMois = $pdo->getLesFichesParMois($leMoisReq);
-                include("vues/v_affichFichesMois.php");
-            } else {
-                ajouterErreur("Vous devez renseigner un mois et une année (valeurs numériques).");
+            $MoisAnnee = $leMois . "/" . $lAnnee;
+            if ((empty($leVisiteur)) && (empty($leMois)) && (empty($lAnnee))) {
+                ajouterErreur("Vous n'avez renseigné aucun champ.");
                 include("vues/v_erreurs.php");
+            } else {
+                if ((!empty($leVisiteur) ) && ( (empty($leMois)) || (empty($lAnnee)) )) {
+                    $leVisiteurSelec = $pdo->getNomPrenomUser($leVisiteur);
+                    $prenom = $leVisiteurSelec['prenom'];
+                    $nom = $leVisiteurSelec['nom'];
+                    $lesFichesParVisiteur = $pdo->getLesFichesParVisiteur($leVisiteur);
+                    if (empty($lesFichesParVisiteur)) {
+                        ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce visiteur.");
+                        include("vues/v_absenceDonnees.php");
+                    } else {
+                        include("vues/v_affichFichesVisiteur.php");
+                    }
+                } else {
+                    if ((empty($leVisiteur) ) && ( (!empty($leMois)) && (!empty($lAnnee)) )) {
+                        if (estDateValide($laDate)) {
+                            $leMoisReq = getMois($laDate);
+                            $lesFichesParMois = $pdo->getLesFichesParMois($leMoisReq);
+                            if (empty($lesFichesParMois)) {
+                                ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce mois.");
+                                include("vues/v_absenceDonnees.php");
+                            } else {
+                                include("vues/v_affichFichesMois.php");
+                            }
+                        } else {
+                            ajouterErreur("L'année doit être écrite sous la forme numérique (2010, 2011...)");
+                            include("vues/v_erreurs.php");
+                        }
+                    } else {
+                        if ((!empty($leVisiteur) ) && ( (!empty($leMois)) || (!empty($lAnnee)) )) {
+                            echo " à coder ";
+                        } else {
+                            if (((!empty($leVisiteur) ) && ( (!empty($leMois)) || (empty($lAnnee)) )) ||
+                                    ((!empty($leVisiteur) ) && ( (empty($leMois)) || (!empty($lAnnee)) )) ||
+                                    ((empty($leVisiteur) ) && ( (!empty($leMois)) || (empty($lAnnee)) )) ||
+                                    ((empty($leVisiteur) ) && ( (empty($leMois)) || (!empty($lAnnee)) ))) {
+                                ajouterErreur("L'année et le mois doivent être renseignés.");
+                                include("vues/v_erreurs.php");
+                            }
+                        }
+                    }
+                }
             }
             break;
         }
-
     default : {
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_listeVisiteurComptable.php");
+            include("vues/v_rechercheComptable.php");
             break;
         }
 }

@@ -9,11 +9,7 @@
         <link href="./styles/structure.css" rel="stylesheet" type="text/css" />
         <link href="./styles/fraisVisiteur.css" rel="stylesheet" type="text/css" />
         <link href="./styles/etatFrais.css" rel="stylesheet" type="text/css" />
-        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script src="./bibliotheques/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-        <link href="./bibliotheques/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-        <script src="./bibliotheques/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="./javascript/calendrier.js" type="text/javascript"></script>
+        <link href="./styles/recherches.css" rel="stylesheet" type="text/css" />
 
         <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
     </head>

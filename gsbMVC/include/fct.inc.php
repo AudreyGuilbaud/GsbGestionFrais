@@ -193,6 +193,13 @@ function ajouterErreur($msg) {
     $_REQUEST['erreurs'][] = $msg;
 }
 
+function ajouterAbsenceDonnees($msg){
+    if (!isset($_REQUEST['absencedonnees'])) {
+        $_REQUEST['absencedonnees'] = array() ;
+    }
+    $_REQUEST['absencedonnees'][] = $msg ;
+}
+
 /**
  * Retoune le nombre de lignes du tableau des erreurs 
 
@@ -205,4 +212,27 @@ function nbErreurs() {
         return count($_REQUEST['erreurs']);
     }
 }
+
+/**
+ * Même principe pour la fonction estDateValide mais ne vérifie que le mois et l'année
+ * @param type $date
+ * @return boolean
+ */
+function estMoisValide($date) {
+    $tabDate = explode('/', $date);
+    $dateOK = true;
+    if (count($tabDate) != 2) {
+        $dateOK = false;
+    } else {
+        if (!estTableauEntiers($tabDate)) {
+            $dateOK = false;
+        } else {
+            if (!checkdate($tabDate[1], $tabDate[0], $tabDate[2])) {
+                $dateOK = false;
+            }
+        }
+    }
+    return $dateOK;
+}
+
 ?>

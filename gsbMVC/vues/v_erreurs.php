@@ -1,8 +1,10 @@
-<div class ="erreur">
-    <ul>
-        <?php
-        foreach ($_REQUEST['erreurs'] as $erreur) {
-            echo "<li>$erreur</li>";
-        }
-        ?>
-    </ul></div>
+<?php
+
+foreach ($_REQUEST['erreurs'] as $erreur) { ?>
+    <div class = "erreurDonnees">
+    <?php echo "$erreur"; ?>
+    </div>
+<?php
+}
+?>
+

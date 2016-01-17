@@ -62,15 +62,4 @@ html>body #contenu{
     height:auto;
 }
 
-.selection {
-    height : 100px;
-    text-align: center ;
-    position : relative ;
-    width : 40%;
-    margin-left: auto;
-    margin-right: auto;
-    color : #515151 ;
-    font-size : 14px;
-    font-weight : bold;
-    padding : 10px;
-}
+
