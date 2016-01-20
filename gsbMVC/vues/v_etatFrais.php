@@ -42,8 +42,8 @@
         <caption class="petitTitre2">Eléments non-forfaitisés </caption> 
         <tr>
             <th class="titreColonne">Date</th>
-            <th class="titreColonne">Libellé</th>
-            <th class='titreColonne'>Montant</th>                
+            <th class="titreColonne">Montant</th>
+            <th class='titreColonne'>Libellé</th>                
         </tr>
         <?php
         foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
