@@ -8,18 +8,18 @@ $action = $_REQUEST['action'];
 
 switch ($action) {
     case 'choixFiche' : {
-            include("vues/v_sommaireComptable.php");
-            include("vues/v_titreValid.html");
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_rechercheComptableValid.php");
+            include_once("vues/v_rechercheComptableValid.php");
             break;
         }
 
     case 'afficherFiches' : {
-            include("vues/v_sommaireComptable.php");
-            include("vues/v_titreValid.html");
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_rechercheComptableValid.php");
+            include_once("vues/v_rechercheComptableValid.php");
             $leVisiteur = $_REQUEST['lstVisiteur'];
             $leMois = $_REQUEST['lstMoisComptable'];
             $lAnnee = $_REQUEST['txtAnneeComptable'];
@@ -34,6 +34,7 @@ switch ($action) {
                     $prenom = $leVisiteurSelec['prenom'];
                     $nom = $leVisiteurSelec['nom'];
                     $lesFichesParVisiteur = $pdo->getLesFichesParVisiteurValid($leVisiteur);
+
                     if (empty($lesFichesParVisiteur)) {
                         ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce visiteur.");
                         include("vues/v_absenceDonnees.php");
@@ -45,6 +46,7 @@ switch ($action) {
                         if (estDateValide($laDate)) {
                             $leMoisReq = getMois($laDate);
                             $lesFichesParMois = $pdo->getLesFichesParMoisValid($leMoisReq);
+
                             if (empty($lesFichesParMois)) {
                                 ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce mois.");
                                 include("vues/v_absenceDonnees.php");
@@ -58,6 +60,8 @@ switch ($action) {
                     } else {
                         if ((!empty($leVisiteur) ) && ( (!empty($leMois)) || (!empty($lAnnee)) )) {
                             $_REQUEST['action'] = 'ficheSelectionnee';
+                            $_REQUEST["visiteur"] = $leVisiteur;
+                            $_REQUEST["mois"] = $lAnnee . $leMois;
                             include("controleurs/c_validerFiches.php");
                         } else {
                             if (((!empty($leVisiteur) ) && ( (!empty($leMois)) || (empty($lAnnee)) )) ||
@@ -74,14 +78,33 @@ switch ($action) {
             break;
         }
     case 'ficheSelectionnee' : {
-            echo "à coder";
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableValid.php");
+            $leVisiteur = $_REQUEST["visiteur"];
+            $leMoisSelec = $_REQUEST["mois"];
+            $leMois = substr($leMoisSelec, 4, 2);
+            $lAnnee = substr($leMoisSelec, 0, 4);
+            $laDateMois = $leMois . "/" . $lAnnee;
+            $leVisiteurNom = $pdo->getNomPrenomUser($leVisiteur);
+            $nom = $leVisiteurNom['nom'];
+            $prenom = $leVisiteurNom['prenom'];
+            $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur, $leMoisSelec);
+            $lesFraisForfait = $pdo->getLesFraisForfait($leVisiteur, $leMoisSelec);
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur, $leMoisSelec);
+            $libEtat = $lesInfosFicheFrais['libEtat'];
+            $dateModif = $lesInfosFicheFrais['dateModif'];
+            $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            include("vues/v_validFrais.php");
             break;
         }
+
     default : {
-            include("vues/v_sommaireComptable.php");
-            include("vues/v_titreValid.html");
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
-            include("vues/v_rechercheComptableValid.php");
+            include_once("vues/v_rechercheComptableValid.php");
             break;
         }
 }

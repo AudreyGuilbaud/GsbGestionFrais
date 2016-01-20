@@ -10,6 +10,7 @@
         <link href="./styles/fraisVisiteur.css" rel="stylesheet" type="text/css" />
         <link href="./styles/etatFrais.css" rel="stylesheet" type="text/css" />
         <link href="./styles/recherches.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="./javascript/j_gestionLiens.js"></script> 
 
         <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
     </head>

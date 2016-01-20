@@ -363,7 +363,7 @@ class PdoGsb {
      */
     public function getLesFichesParMoisValid($idMois) {
         $req = "SELECT ficheFrais.dateModif as dateModif, etat.libelle as libEtat,
-                utilisateur.nom, utilisateur.prenom
+                utilisateur.nom as nom, utilisateur.prenom as prenom, utilisateur.id as visiteur
                 FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
                 JOIN utilisateur ON utilisateur.id = ficheFrais.idvisiteur
                 WHERE fichefrais.mois ='$idMois'

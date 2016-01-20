@@ -13,12 +13,15 @@
             $libEtat = $uneFiche['libEtat'];
             $nom = $uneFiche['nom'];
             $prenom = $uneFiche['prenom'];
+            $leVisiteur= $uneFiche['visiteur'];
             ?>   	
             <tr>
                 <td class="ligneFraisHFPetit"> <?php echo $prenom . " " . $nom ?></td>
                 <td class="ligneFraisHFPetit"><?php echo dateAnglaisVersFrancais($dateModif) ?> </td>
                 <td class="ligneFraisHF"><?php echo $libEtat ?></td>                    
-                <td class="ligneFraisHFSuppr"><a href="index.php?uc=validerFiches&action=afficherFiche">Accéder</a></td> 
+                <td class="ligneFraisHFSuppr">
+                    <a href="index.php?uc=validerFiches&action=ficheSelectionnee&visiteur=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisReq ?>" 
+                       id="accesFiches" >Accéder</a></td> 
             </tr>
             <?php
         }
