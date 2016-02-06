@@ -40,7 +40,7 @@
                 $quantite = $unFraisForfait['quantite'];
                 $idFrais = $unFraisForfait['idfrais'];
                 ?>
-                <td class="ligneFraisHFPetit"><input name="nbr <?php echo $idFrais ?> " type="text" value="<?php echo $quantite ?>"> </td>
+                <td class="ligneFraisHFPetit"><input class="inputPetit" name="nbr <?php echo $idFrais ?> " type="text" value="<?php echo $quantite ?>"> </td>
                 <?php
             }
             ?>
