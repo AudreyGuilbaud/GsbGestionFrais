@@ -1,6 +1,6 @@
 ﻿    <!-- Division pour le sommaire -->
 <div id="menuhaut">
-    <div id="nomVisit">
+    <div class="nomVisit">
 
         <?php echo "Bienvenue " . $_SESSION['prenom'] . "  " . $_SESSION['nom'] . " !" ?>
 

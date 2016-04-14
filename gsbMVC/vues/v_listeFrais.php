@@ -22,9 +22,9 @@
                         <?php
                     }
                     ?>
-                    <div id="boutonsBas1">                           
-                        <input id="ajouter" type="submit" value="Valider" size="20" class="bouton valider" />                            
-                        <input id="effacer" type="reset" value="Effacer" size="20" class="bouton annuler"/>                            
+                    <div class="boutonsBas1">                           
+                        <input type="submit" value="Valider" size="20" class="bouton valider" />                            
+                        <input type="reset" value="Effacer" size="20" class="bouton annuler"/>                            
                     </div>
                 </fieldset>
             </div>
@@ -49,45 +49,46 @@
                     <input type="text" id="txtLibelleHF" name="libelle" size="30" maxlength="256" value="" class="barreTexte" />
                 </p>
 
-                <div id="boutonsBas2">
-                    <div id="boutonsBas2">                           
-                        <input id="ajouter" type="submit" value="Ajouter" size="20" class="bouton valider" />                            
-                        <input id="effacer" type="reset" value="Effacer" size="20" class="bouton annuler"/>                            
+                <div class="boutonsBas2">
+                    <div class="boutonsBas2">                           
+                        <input type="submit" value="Ajouter" size="20" class="bouton valider" />                            
+                        <input type="reset" value="Effacer" size="20" class="bouton annuler"/>                            
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
 
-
-    <div class="divPlein">
-        <table>
-            <caption class="petitTitre">Descriptif des éléments hors forfait </caption>
-            <tr>
-                <th class="titreColonne">Date</th>
-                <th class="titreColonne">Montant</th> 
-                <th class="titreColonne">Libellé</th>  
-                <th>&nbsp;</th>              
-            </tr>
-
-            <?php
-            foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
-                $libelle = $unFraisHorsForfait['libelle'];
-                $date = $unFraisHorsForfait['date'];
-                $montant = $unFraisHorsForfait['montant'];
-                $id = $unFraisHorsForfait['id'];
-                ?>		
+    <?php if (!empty($lesFraisHorsForfait)) { ?>
+        <div class="divPlein">
+            <table>
+                <caption class="petitTitre">Descriptif des éléments hors forfait </caption>
                 <tr>
-                    <td class="ligneFraisHFPetit"> <?php echo $date ?></td>
-                    <td class="ligneFraisHFPetit"><?php echo $montant ?> euros</td>
-                    <td class="ligneFraisHF"><?php echo $libelle ?></td>                    
-                    <td class="ligneFraisHFSuppr"><a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
-                                                     onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer</a></td>
+                    <th class="titreColonne">Date</th>
+                    <th class="titreColonne">Montant</th> 
+                    <th class="titreColonne">Libellé</th>  
+                    <th>&nbsp;</th>              
                 </tr>
-                <?php
-            }
-            ?>	  
 
-        </table>
-    </div>
+                <?php
+                foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
+                    $libelle = $unFraisHorsForfait['libelle'];
+                    $date = $unFraisHorsForfait['date'];
+                    $montant = $unFraisHorsForfait['montant'];
+                    $id = $unFraisHorsForfait['id'];
+                    ?>		
+                    <tr>
+                        <td class="ligneFraisHFPetit"> <?php echo $date ?></td>
+                        <td class="ligneFraisHFPetit"><?php echo $montant ?> euros</td>
+                        <td class="ligneFraisHF"><?php echo $libelle ?></td>                    
+                        <td class="ligneFraisHFSuppr"><a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
+                                                         onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer</a></td>
+                    </tr>
+                    <?php
+                }
+                ?>	  
+
+            </table>
+        </div>
+    <?php } ?>
 </div>
