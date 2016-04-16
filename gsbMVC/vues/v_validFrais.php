@@ -21,7 +21,7 @@
             <td class="tableauLeger"><?php echo $nbJustificatifs ?> </td>
         </tr>
     </table>
-     <table class="divPlein">
+    <table class="divPlein">
         <caption class="petitTitre2">Eléments forfaitisés </caption>
         <tr>
             <?php
@@ -40,10 +40,16 @@
                 $quantite = $unFraisForfait['quantite'];
                 $idFrais = $unFraisForfait['idfrais'];
                 ?>
-                <td class="ligneFraisHFPetit"><input class="inputPetit" name="nbr <?php echo $idFrais ?> " type="text" value="<?php echo $quantite ?>"> </td>
+                <td class="colonneFraisForfait"><input disabled class="inputPetit" name="nbr <?php echo $idFrais ?> " type="text" value="<?php echo $quantite ?>"> </td>
+
                 <?php
             }
             ?>
+            <td class="colonneBoutonForfait">
+                <input type="button" class="buttonModifier nonmodif" title="Modifier les frais forfaitisés">
+                <input type="button" hidden class="buttonValider nonmodif" title="Valider les modifications">
+                <input type="button" hidden class="buttonAnnuler nonmodif" title="Annuler les modifications">
+            </td>
         </tr>
     </table>
     <table class="divPlein">
