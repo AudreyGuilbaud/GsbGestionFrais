@@ -21,37 +21,41 @@
             <td class="tableauLeger"><?php echo $nbJustificatifs ?> </td>
         </tr>
     </table>
-    <table class="divPlein">
-        <caption class="petitTitre2">Eléments forfaitisés </caption>
-        <tr>
-            <?php
-            foreach ($lesFraisForfait as $unFraisForfait) {
-                $libelle = $unFraisForfait['libelle'];
-                ?>	
-                <th class="titreColonne"> <?php echo $libelle ?></th>
+    <form method="POST" action="">
+        <table class="divPlein">
+            <caption class="petitTitre2">Eléments forfaitisés </caption>
+            <tr>
                 <?php
-            }
-            ?>
-        </tr>
-        <tr>
-            <?php
-            foreach ($lesFraisForfait as $unFraisForfait) {
-                $libelle = $unFraisForfait['libelle'];
-                $quantite = $unFraisForfait['quantite'];
-                $idFrais = $unFraisForfait['idfrais'];
+                foreach ($lesFraisForfait as $unFraisForfait) {
+                    $libelle = $unFraisForfait['libelle'];
+                    ?>	
+                    <th class="titreColonne"> <?php echo $libelle ?></th>
+                    <?php
+                }
                 ?>
-                <td class="colonneFraisForfait"><input disabled class="inputPetit" name="nbr <?php echo $idFrais ?> " type="text" value="<?php echo $quantite ?>"> </td>
+            </tr>
 
+            <tr>
                 <?php
-            }
-            ?>
-            <td class="colonneBoutonForfait">
-                <input type="button" class="buttonModifier nonmodif" title="Modifier les frais forfaitisés">
-                <input type="button" hidden class="buttonValider nonmodif" title="Valider les modifications">
-                <input type="button" hidden class="buttonAnnuler nonmodif" title="Annuler les modifications">
-            </td>
-        </tr>
-    </table>
+                foreach ($lesFraisForfait as $unFraisForfait) {
+                    $libelle = $unFraisForfait['libelle'];
+                    $quantite = $unFraisForfait['quantite'];
+                    $idFrais = $unFraisForfait['idfrais'];
+                    ?>
+                    <td class="colonneFraisForfait"><input disabled class="inputPetit pourdisabled" name="nbr <?php echo $idFrais ?> " type="text" value="<?php echo $quantite ?>"> </td>
+
+                    <?php
+                }
+                ?>
+                <td class="colonneBoutonForfait">
+                    <input type="button" class="buttonModifier nonmodif" onclick='disabledCondi()' title="Modifier les frais forfaitisés">
+                    <input type="button" hidden class="buttonValider modif" onclick='enabledCondi()' title="Valider les modifications">
+                    <input type="button" hidden class="buttonAnnuler modif" onclick='enabledCondi()' title="Annuler les modifications">
+                </td>
+            </tr>
+
+        </table>
+    </form>
     <table class="divPlein">
         <caption class="petitTitre2">Eléments non-forfaitisés </caption> 
         <tr>
