@@ -21,8 +21,10 @@
             <td class="tableauLeger"><?php echo $nbJustificatifs ?> </td>
         </tr>
     </table>
-    <form method="POST" action="">
+    <form method="POST" action="index.php?uc=validerFiches&action=modifFraisForfait">
         <table class="divPlein">
+            <input class="inputPetit" hidden name="idVisiteur" type="text" value="<?php echo $leVisiteur ?>"> 
+            <input class="inputPetit" hidden name="dateMois" type="text" value="<?php echo $leMoisSelec ?>"> 
             <caption class="petitTitre2">Eléments forfaitisés </caption>
             <tr>
                 <?php
@@ -38,23 +40,24 @@
             <tr>
                 <?php
                 foreach ($lesFraisForfait as $unFraisForfait) {
-                    $libelle = $unFraisForfait['libelle'];
                     $quantite = $unFraisForfait['quantite'];
                     $idFrais = $unFraisForfait['idfrais'];
                     ?>
-                    <td class="colonneFraisForfait"><input disabled class="inputPetit pourdisabled" name="nbr <?php echo $idFrais ?> " type="text" value="<?php echo $quantite ?>"> </td>
+                    <td class="colonneFraisForfait">
+                        <input disabled class="inputPetit pourdisabled" name="lesFrais[<?php echo $idFrais ?>]" type="text" value="<?php echo $quantite ?>"> 
+                    </td>
 
                     <?php
                 }
                 ?>
                 <td class="colonneBoutonForfait">
                     <input type="button" class="buttonModifier nonmodif" onclick='disabledCondi()' title="Modifier les frais forfaitisés">
-                    <input type="button" hidden class="buttonValider modif" onclick='enabledCondi()' title="Valider les modifications">
-                    <input type="button" hidden class="buttonAnnuler modif" onclick='enabledCondi()' title="Annuler les modifications">
-                </td>
+                    <input type="submit" hidden class="buttonValider modif" title="Valider les modifications" value="">
+                    <input type="reset" hidden class="buttonAnnuler modif" onclick='enabledCondi()' title="Annuler les modifications" value="">
+                </td>          
             </tr>
-
         </table>
+        <input type="text" id="erreur" class="erreur" readonly>
     </form>
     <table class="divPlein">
         <caption class="petitTitre2">Eléments non-forfaitisés </caption> 

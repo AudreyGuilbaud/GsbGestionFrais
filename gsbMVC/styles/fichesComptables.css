@@ -68,3 +68,9 @@
     background-repeat : no-repeat ;
     background-position: center center;
 }
+
+.erreur {
+    width : 100%;
+    color : red ;
+    border : none ;
+}

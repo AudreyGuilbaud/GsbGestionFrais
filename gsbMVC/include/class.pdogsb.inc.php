@@ -413,6 +413,7 @@ class PdoGsb {
         $lesLignes = $res->fetchAll();
         return $lesLignes;
     }
+    
 
 }
 ?>

@@ -4,14 +4,23 @@
 
 
 function disabledCondi() {
-    $('.pourdisabled').prop('disabled', false);
-    $('.modif').prop('hidden', false);
+    $('.pourdisabled').attr('disabled', false);
+    $('.modif').attr('hidden', false);
     $('.nonmodif').attr('hidden', true);
 }
 
 function enabledCondi() {
     $('.pourdisabled').attr('disabled', true);
     $('.modif').attr('hidden', true);
-    $('.nonmodif').prop('hidden', false);
+    $('.nonmodif').attr('hidden', false);
 }
+
+function verifEntier(valeur) {
+    if (valeur.match(/^-?[0-9]+$/)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
