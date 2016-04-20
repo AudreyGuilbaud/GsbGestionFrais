@@ -131,6 +131,85 @@ switch ($action) {
             break;
         }
 
+    case 'refuserFrais' : {
+            if (!empty($_REQUEST['id'])) {
+                $idFraisHF = $_REQUEST['id'];
+            }
+            $pdo->refuserFraisHF($idFraisHF);
+            $leVisiteur = $_REQUEST['idVisit'];
+            $leMoisSelec = $_REQUEST['mois'];
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableValid.php");
+            $leMois = substr($leMoisSelec, 4, 2);
+            $lAnnee = substr($leMoisSelec, 0, 4);
+            $laDateMois = $leMois . "/" . $lAnnee;
+            $leVisiteurNom = $pdo->getNomPrenomUser($leVisiteur);
+            $nom = $leVisiteurNom['nom'];
+            $prenom = $leVisiteurNom['prenom'];
+            $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur, $leMoisSelec);
+            $lesFraisForfait = $pdo->getLesFraisForfait($leVisiteur, $leMoisSelec);
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur, $leMoisSelec);
+            $libEtat = $lesInfosFicheFrais['libEtat'];
+            $dateModif = $lesInfosFicheFrais['dateModif'];
+            $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            include("vues/v_validFrais.php");
+            break;
+        }
+
+    case 'reporterFrais' : {
+            if (!empty($_REQUEST['id'])) {
+                $idFraisHF = $_REQUEST['id'];
+            }
+            $pdo->reporterFraisHF($idFraisHF);
+            $leVisiteur = $_REQUEST['idVisit'];
+            $leMoisSelec = $_REQUEST['mois'];
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableValid.php");
+            $leMois = substr($leMoisSelec, 4, 2);
+            $lAnnee = substr($leMoisSelec, 0, 4);
+            $laDateMois = $leMois . "/" . $lAnnee;
+            $leVisiteurNom = $pdo->getNomPrenomUser($leVisiteur);
+            $nom = $leVisiteurNom['nom'];
+            $prenom = $leVisiteurNom['prenom'];
+            $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur, $leMoisSelec);
+            $lesFraisForfait = $pdo->getLesFraisForfait($leVisiteur, $leMoisSelec);
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur, $leMoisSelec);
+            $libEtat = $lesInfosFicheFrais['libEtat'];
+            $dateModif = $lesInfosFicheFrais['dateModif'];
+            $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            include("vues/v_validFrais.php");
+            break;
+        }
+    case 'restaurerFrais' : {
+            if (!empty($_REQUEST['id'])) {
+                $idFraisHF = $_REQUEST['id'];
+            }
+            $pdo->restaurerFraisHF($idFraisHF);
+            $leVisiteur = $_REQUEST['idVisit'];
+            $leMoisSelec = $_REQUEST['mois'];
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableValid.php");
+            $leMois = substr($leMoisSelec, 4, 2);
+            $lAnnee = substr($leMoisSelec, 0, 4);
+            $laDateMois = $leMois . "/" . $lAnnee;
+            $leVisiteurNom = $pdo->getNomPrenomUser($leVisiteur);
+            $nom = $leVisiteurNom['nom'];
+            $prenom = $leVisiteurNom['prenom'];
+            $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur, $leMoisSelec);
+            $lesFraisForfait = $pdo->getLesFraisForfait($leVisiteur, $leMoisSelec);
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur, $leMoisSelec);
+            $libEtat = $lesInfosFicheFrais['libEtat'];
+            $dateModif = $lesInfosFicheFrais['dateModif'];
+            $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            include("vues/v_validFrais.php");
+            break;
+        }
     default : {
             include_once("vues/v_sommaireComptable.php");
             include_once("vues/v_titreValid.html");

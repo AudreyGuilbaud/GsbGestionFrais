@@ -80,7 +80,7 @@ class PdoGsb {
      */
     public function getLesFraisHorsForfait($idVisiteur, $mois) {
         $req = "select * from lignefraishorsforfait where lignefraishorsforfait.idvisiteur ='$idVisiteur' 
-		and lignefraishorsforfait.mois = '$mois' ";
+		and lignefraishorsforfait.mois = '$mois' ORDER BY refuse, date";
         $res = PdoGsb::$monPdo->query($req);
         $lesLignes = $res->fetchAll();
         $nbLignes = count($lesLignes);
@@ -392,7 +392,7 @@ class PdoGsb {
         $lesLignes = $res->fetchAll();
         return $lesLignes;
     }
-    
+
     /**
      * 
      * @param string $idMois
@@ -413,7 +413,20 @@ class PdoGsb {
         $lesLignes = $res->fetchAll();
         return $lesLignes;
     }
-    
+
+    public function refuserFraisHF($fraisHF) {
+        $req = "UPDATE lignefraishorsforfait SET refuse=1 WHERE id='$fraisHF'";
+        PdoGsb::$monPdo->exec($req);
+    }
+
+    public function reporterFraisHF($fraisHF) {
+        PdoGsb::$monPdo->exec($req);
+    }
+
+    public function restaurerFraisHF($fraisHF) {
+        $req = "UPDATE lignefraishorsforfait SET refuse=0 WHERE id='$fraisHF'";
+        PdoGsb::$monPdo->exec($req);
+    }
 
 }
 ?>

@@ -57,7 +57,7 @@
                 </td>          
             </tr>
         </table>
-        <input type="text" id="erreur" class="erreur" readonly>
+        <!--<input type="text" id="erreur" class="erreur" readonly>-->
     </form>
     <table class="divPlein">
         <caption class="petitTitre2">Eléments non-forfaitisés </caption> 
@@ -71,15 +71,28 @@
             $date = $unFraisHorsForfait['date'];
             $libelle = $unFraisHorsForfait['libelle'];
             $montant = $unFraisHorsForfait['montant'];
+            $idFraisHF = $unFraisHorsForfait['id'];
+            $etat = $unFraisHorsForfait['refuse'];
             ?>
-            <tr>
-                <td class="ligneFraisHFPetit"><?php echo $date ?></td>
-                <td class="ligneFraisHFPetit"><?php echo $montant ?></td>
-                <td class="ligneFraisHF"><?php echo $libelle ?></td>
-                <td class="ligneFraisHFSuppr"><a href="index.php?uc=validerFiches&action=ficheSelectionnee">Reporter</a></td>
-                <td class="ligneFraisHFSuppr"><a href="index.php?uc=validerFiches&action=ficheSelectionnee">Supprimer </a></td>
-            </tr>
-            <?php
+
+            <?php if ($etat == 0) { ?>
+                <tr>
+                    <td class="ligneFraisHFPetit"><?php echo $date ?></td>
+                    <td class="ligneFraisHFPetit"><?php echo $montant ?></td>
+                    <td class="ligneFraisHF"><?php echo $libelle ?></td>
+                    <td class="ligneFraisHFSuppr"><a href="index.php?uc=validerFiches&action=reporterFrais&id=<?php echo $idFraisHF ; ?>&idVisit=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisSelec ?>" onclick="return confirm('Voulez-vous vraiment reporter ce frais?');">Reporter</a></td>
+                    <td class="ligneFraisHFSuppr"><a href="index.php?uc=validerFiches&action=refuserFrais&id=<?php echo $idFraisHF ; ?>&idVisit=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisSelec ?>" onclick="return confirm('Voulez-vous vraiment refuser ce frais?');">Refuser </a></td>
+                </tr>
+            <?php } else { ?>
+                <tr>
+                    <td class="FraisHFRefusePetit"><?php echo $date ?></td>
+                    <td class="FraisHFRefusePetit"><?php echo $montant ?></td>
+                    <td class="FraisHFRefuse"><?php echo $libelle ?></td>
+                    <td class="FraisHFRefusePetit">Refusé</td>
+                    <td class="FraisHFRefuseBouton"><a href="index.php?uc=validerFiches&action=restaurerFrais&id=<?php echo $idFraisHF ; ?>&idVisit=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisSelec ?>" onclick="return confirm('Voulez-vous vraiment restaurer ce frais?');">Restaurer </a></td>
+                </tr>
+                <?php
+            }
         }
         ?>
     </table>
