@@ -20,23 +20,34 @@ body{
     height: 270px; 
     width : 100%;
     text-align: center;
-    font-variant : small-caps;  
-    font-size : 300%;
-    text-align: center;
     line-height:270px;
     vertical-align: middle;
     float : right
 }
 
 #imgEntete {
-    height : 230px;
-    width : 380px;
+    width : 30%;
     padding : 20px;
-    background-image: url(../images/logoGSB.gif);
-    background-repeat: no-repeat;
+    height : 85%;
     float : left;
-
 }
+
+#titreEntete {
+    float : left ;
+    width : 60% ;
+    line-height : 270px;
+    vertical-align: middle ;
+}
+
+#imgEnteteLogo{
+    width : 100%;
+    height : auto ;
+}
+
+#imgEnteteTitre {
+    width : 100% ;
+}
+
 #pied{
     clear : both;
     border : solid 0.2em #980101;
