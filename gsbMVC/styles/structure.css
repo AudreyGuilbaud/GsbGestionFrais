@@ -1,16 +1,21 @@
 /* Styles des divisions principales de la page */
+*{
+   position : relative ; 
+}
 body{
     background-color: white;
     margin:0% 0%;
     padding : 0.6em;
-    font-family:"Microsoft Yahei Light","Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family:"Microsoft Yahei Light","Segoe UI Light", "Open Sans Light", "Century Gothic",CenturyGothic, AppleGothic, sans-serif;
     font-size:0.8em;
 }
 #page {
+    position : absolute;
     background-color:white;
     width : 80%;
-    margin : auto ;
+    margin-left : 10% ;
     padding : 0.1em;
+    margin-top : 270px;
 }
 
 #entete{

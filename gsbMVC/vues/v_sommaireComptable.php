@@ -13,7 +13,7 @@
             <a href="index.php?uc=suivreFiches" title="Suivre fiches de frais">Mise en paiement</a>
         </li>
         <li class="menuHautCompt">
-            <a href="index.php?index.php?uc=archivesFiches" title="Se déconnecter">Archives</a>
+            <a href="index.php?uc=archivesFiches" title="Archives">Archives</a>
         </li>
         <li class="menuHautCompt">
             <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>

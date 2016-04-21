@@ -76,7 +76,25 @@ switch ($action) {
             break;
         }
     case 'ficheSelectionnee' : {
-            echo "à coder";
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreSuivi.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableSuivi.php");
+            $leVisiteur = $_REQUEST["visiteur"];
+            $leMoisSelec = $_REQUEST["mois"];
+            $leMois = substr($leMoisSelec, 4, 2);
+            $lAnnee = substr($leMoisSelec, 0, 4);
+            $laDateMois = $leMois . "/" . $lAnnee;
+            $leVisiteurNom = $pdo->getNomPrenomUser($leVisiteur);
+            $nom = $leVisiteurNom['nom'];
+            $prenom = $leVisiteurNom['prenom'];
+            $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur, $leMoisSelec);
+            $lesFraisForfait = $pdo->getLesFraisForfait($leVisiteur, $leMoisSelec);
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur, $leMoisSelec);
+            $libEtat = $lesInfosFicheFrais['libEtat'];
+            $dateModif = $lesInfosFicheFrais['dateModif'];
+            $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            include("vues/v_miseEnPaiement.php");
             break;
         }
     default : {

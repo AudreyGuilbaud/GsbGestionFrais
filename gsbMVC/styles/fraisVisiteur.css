@@ -4,7 +4,6 @@
     border-color : #d7fcff;
     font-size : 14px;
     color : #515151;
-    font-weight : bold;
 }
 #contenuFraisForfait, #contenuFraisHorsForfait {
     width : 49%;
@@ -51,10 +50,11 @@
 .ligneFraisHF {
     text-align:left ;
     list-style-type:none;
+    position : relative ;
 }
 
 td.ligneFraisHF, td.ligneFraisHFPetit, td.ligneFraisHFSuppr {
-
+position : relative ;
     display:inline-block;
     display:block;
     float:left;       
@@ -70,7 +70,6 @@ td.ligneFraisHF, td.ligneFraisHFPetit, td.ligneFraisHFSuppr {
     padding-left : 10px ;
     padding-right: 10px;
     font-size: 14px;
-    font-weight: bold;
     margin-top: 10px;
 }
 td.ligneFraisHFPetit, td.ligneFraisHFSuppr {    
@@ -103,6 +102,7 @@ td.ligneFraisHFSuppr a:hover {
 }
 
 .titreColonne {
+    position : relative ;
     background-color :#d7fcff;
     color : #515151;
     height : 30px;
@@ -112,8 +112,8 @@ td.ligneFraisHFSuppr a:hover {
 }
 
 .tableauLeger {
+    position : relative ;
     color : #515151;
-    font-weight : bold;
 }
 
 .titreTableauLeger {

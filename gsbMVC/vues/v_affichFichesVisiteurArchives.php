@@ -1,7 +1,7 @@
 <div class = "divPlein">
 
     <table>
-        <caption class = "petitTitre2">Fiches de frais à contrôler pour <?php echo $prenom . " " . $nom ?> </caption>
+        <caption class = "petitTitre2">Archives pour <?php echo $prenom . " " . $nom ?> </caption>
         <tr>
             <th class = "titreColonne">Mois</th>
             <th class = "titreColonne">Dernière modification</th>
@@ -23,7 +23,7 @@
                 <td class="ligneFraisHFPetit"><?php echo dateAnglaisVersFrancais($dateModif) ?> </td>
                 <td class="ligneFraisHF"><?php echo $libEtat ?></td>
                 <td class="ligneFraisHFSuppr">
-                    <a href="index.php?uc=validerFiches&action=ficheSelectionnee&visiteur=<?php echo $leVisiteur ?>&mois=<?php echo $mois ?>" 
+                    <a href="index.php?uc=archivesFiches&action=ficheSelectionnee&visiteur=<?php echo $leVisiteur ?>&mois=<?php echo $mois ?>" 
                        id="accesFiches" >Accéder</a></td> 
 
             </tr>
@@ -35,3 +35,4 @@
     </table>
 
 </div>
+
