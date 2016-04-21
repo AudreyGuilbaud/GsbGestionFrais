@@ -33,23 +33,23 @@ switch ($action) {
                     $leVisiteurSelec = $pdo->getNomPrenomUser($leVisiteur);
                     $prenom = $leVisiteurSelec['prenom'];
                     $nom = $leVisiteurSelec['nom'];
-                    $lesFichesParVisiteur = $pdo->getLesFichesParVisiteurSuivi($leVisiteur);
+                    $lesFichesParVisiteur = $pdo->getLesFichesParVisiteurValid($leVisiteur);
                     if (empty($lesFichesParVisiteur)) {
                         ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce visiteur.");
                         include("vues/v_absenceDonnees.php");
                     } else {
-                        include("vues/v_affichFichesVisiteur.php");
+                        include("vues/v_affichFichesVisiteurSuivi.php");
                     }
                 } else {
                     if ((empty($leVisiteur) ) && ( (!empty($leMois)) && (!empty($lAnnee)) )) {
                         if (estDateValide($laDate)) {
                             $leMoisReq = getMois($laDate);
-                            $lesFichesParMois = $pdo->getLesFichesParMoisSuivi($leMoisReq);
+                            $lesFichesParMois = $pdo->getLesFichesParMoisValid($leMoisReq);
                             if (empty($lesFichesParMois)) {
                                 ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce mois.");
                                 include("vues/v_absenceDonnees.php");
                             } else {
-                                include("vues/v_affichFichesMois.php");
+                                include("vues/v_affichFichesMoisSuivi.php");
                             }
                         } else {
                             ajouterErreur("L'année doit être écrite sous la forme numérique (2010, 2011...)");
@@ -58,6 +58,8 @@ switch ($action) {
                     } else {
                         if ((!empty($leVisiteur) ) && ( (!empty($leMois)) || (!empty($lAnnee)) )) {
                             $_REQUEST['action'] = 'ficheSelectionnee';
+                            $_REQUEST["visiteur"] = $leVisiteur;
+                            $_REQUEST["mois"] = $lAnnee . $leMois;
                             include("controleurs/c_suivreFiches.php");
                         } else {
                             if (((!empty($leVisiteur) ) && ( (!empty($leMois)) || (empty($lAnnee)) )) ||

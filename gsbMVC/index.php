@@ -31,7 +31,10 @@ switch ($uc) {
             include("controleurs/c_suivreFiches.php");
             break;
         }
-    
+    case 'archivesFiches' : {
+            include("controleurs/c_archivesFiches.php");
+            break;
+        }
 }
 include("vues/v_pied.php");
 ?>

@@ -373,46 +373,6 @@ class PdoGsb {
         return $lesLignes;
     }
 
-    /**
-     * 
-     * @param string $idVisiteur 
-     * @return tableau associatif retournant toutes les fiches à traiter ayant le
-     * statut VA et RB pour tous les mois pour le visiteur donné.
-     */
-    public function getLesFichesParVisiteurSuivi($idVisiteur) {
-        $req = "SELECT ficheFrais.dateModif as dateModif, etat.libelle as libEtat,
-                fichefrais.mois as mois
-                FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
-                WHERE (fichefrais.idvisiteur ='$idVisiteur'
-                AND idetat = 'VA')
-                OR (idetat = 'RB'
-                AND fichefrais.idvisiteur = '$idVisiteur')
-                ORDER BY mois DESC ";
-        $res = PdoGsb::$monPdo->query($req);
-        $lesLignes = $res->fetchAll();
-        return $lesLignes;
-    }
-
-    /**
-     * 
-     * @param string $idMois
-     * @return tableau associatif retournant toutes les fiches à traiter ayant le
-     * statut VA et RB pour tous les mois pour le visiteur donné.
-     */
-    public function getLesFichesParMoisSuivi($idMois) {
-        $req = "SELECT fichefrais.dateModif as dateModif, etat.libelle as libEtat,
-                utilisateur.nom, utilisateur.prenom
-                FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
-                                 JOIN utilisateur ON utilisateur.id = ficheFrais.idvisiteur 
-                WHERE (fichefrais.mois ='$idMois' 
-                AND idetat = 'VA')
-                OR (idetat = 'RB' 
-                AND fichefrais.mois = '$idMois')
-                ORDER BY utilisateur.nom ";
-        $res = PdoGsb::$monPdo->query($req);
-        $lesLignes = $res->fetchAll();
-        return $lesLignes;
-    }
 
     /**
      * Passe l'état refusé d'un frais hors forfait à refusé.

@@ -4,11 +4,11 @@
     </div>
     <div id="calque" class="encadreFin calque">             
         <form action="index.php?uc=suivreFiches&action=afficherFiches" method="post">
-            <div class="selection selectionFiche1">
+            <div class="selection">
                 Sélectionnez un visiteur
                 <p>
                     <label for="lstVisiteur" accesskey="n">Visiteur : </label>
-                    <select id="lstVisiteur" name="lstVisiteur">
+                    <select id="lstVisiteur" class="selectVisiteur" name="lstVisiteur">
                         <?php
                         foreach ($lesVisiteurs as $unVisiteur) {
                             $id = $unVisiteur['id'];
@@ -26,11 +26,11 @@
             <div class="etou">
                 ET/OU  
             </div>
-            <div class="selection selectionFiche2">
+            <div class="selection">
                 Sélectionnez un mois
                 <p>
                     <label for="lstMoisComptable" accesskey="n">Mois : </label>
-                    <select id="lstMoisComptable" name="lstMoisComptable">
+                    <select class="selectMois" id="lstMoisComptable" name="lstMoisComptable">
                         <option selected value=""> </option>
                         <option value="01"> janvier </option>
                         <option value="02"> février </option>
@@ -47,7 +47,7 @@
                     </select>
                     &nbsp;&nbsp;
                     <label for="txtAnneeComptable" accesskey="n">Année (YYYY) : </label>
-                    <input size="4" name="txtAnneeComptable"/>
+                    <input size="4" class="txtAnnee" name="txtAnneeComptable"/>
                 </p>
             </div>
             <input id="ok" type="submit" value="Rechercher" class="bouton rechercher"/>              
