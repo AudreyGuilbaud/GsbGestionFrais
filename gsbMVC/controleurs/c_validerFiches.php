@@ -159,12 +159,14 @@ switch ($action) {
         }
 
     case 'reporterFrais' : {
-            if (!empty($_REQUEST['id'])) {
-                $idFraisHF = $_REQUEST['id'];
-            }
-            $pdo->reporterFraisHF($idFraisHF);
             $leVisiteur = $_REQUEST['idVisit'];
             $leMoisSelec = $_REQUEST['mois'];
+            if (!empty($_REQUEST['id'])) {
+                $idFraisHF = $_REQUEST['id'];
+            }         
+            $nouveauMois = ajoutUnMois($leMoisSelec);
+            echo $nouveauMois;
+            $pdo->reporterFraisHF($idFraisHF, $nouveauMois, $leVisiteur);
             include_once("vues/v_sommaireComptable.php");
             include_once("vues/v_titreValid.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();

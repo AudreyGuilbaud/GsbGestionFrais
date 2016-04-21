@@ -414,15 +414,28 @@ class PdoGsb {
         return $lesLignes;
     }
 
+    /**
+     * Passe l'état refusé d'un frais hors forfait à refusé.
+     * @param int $fraisHF
+     */
     public function refuserFraisHF($fraisHF) {
         $req = "UPDATE lignefraishorsforfait SET refuse=1 WHERE id='$fraisHF'";
         PdoGsb::$monPdo->exec($req);
     }
 
-    public function reporterFraisHF($fraisHF) {
+    /**
+     * Reporte un frais hors forfait d'une fiche au mois suivant
+     * @param int $fraisHF
+     */
+    public function reporterFraisHF($fraisHF, $nouveauMois, $leVisiteur) {
+        $req = "UPDATE lignefraishorsforfait SET mois='$nouveauMois', idVisiteur='$leVisiteur' WHERE id='$fraisHF'";
         PdoGsb::$monPdo->exec($req);
     }
 
+    /**
+     * Passe l'état refusé d'un frais hors forfait à accepté.
+     * @param int $fraisHF
+     */
     public function restaurerFraisHF($fraisHF) {
         $req = "UPDATE lignefraishorsforfait SET refuse=0 WHERE id='$fraisHF'";
         PdoGsb::$monPdo->exec($req);

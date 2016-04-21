@@ -193,11 +193,11 @@ function ajouterErreur($msg) {
     $_REQUEST['erreurs'][] = $msg;
 }
 
-function ajouterAbsenceDonnees($msg){
+function ajouterAbsenceDonnees($msg) {
     if (!isset($_REQUEST['absencedonnees'])) {
-        $_REQUEST['absencedonnees'] = array() ;
+        $_REQUEST['absencedonnees'] = array();
     }
-    $_REQUEST['absencedonnees'][] = $msg ;
+    $_REQUEST['absencedonnees'][] = $msg;
 }
 
 /**
@@ -235,4 +235,20 @@ function estMoisValide($date) {
     return $dateOK;
 }
 
+/**
+ * Ajoute un mois à un mois donné au format 201510.
+ * @param int anneemois
+ * @return int nouveauAnneeMois 
+ */
+function ajoutUnMois($anneemois){
+    $annee = substr($anneemois, 0, 4);
+    $mois = substr($anneemois, 4, 2);
+    $ladate = $annee . "-" . $mois . "-01";
+    $i = 1;
+    $newDate = date('Y-m-d', strtotime($ladate . ' +' . $i . ' month'));
+    $nouveauMois = substr($newDate, 5, 2);
+    $nouvelleAnnee = substr($newDate, 0, 4);
+    $nouveauAnneeMois = $nouvelleAnnee . $nouveauMois;
+    return $nouveauAnneeMois;
+}
 ?>
