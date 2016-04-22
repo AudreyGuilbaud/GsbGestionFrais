@@ -105,6 +105,7 @@ switch ($action) {
             $pdo->miseEnPaiementFiche($leVisiteur, $leMoisSelec);
             ajouterReussiteEnvoi('La fiche sélectionnée a bien été mise en paiement.');
             include_once("vues/v_sommaireComptable.php");
+            include("vues/v_reussiteEnvoi.php");
             include_once("vues/v_titreSuivi.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
             include_once("vues/v_rechercheComptableSuivi.php");
@@ -131,6 +132,7 @@ switch ($action) {
             $pdo->remboursementEffectueFiche($leVisiteur, $leMoisSelec);
             ajouterReussiteEnvoi('La fiche sélectionnée a maintenant le statut de remboursée.');
             include_once("vues/v_sommaireComptable.php");
+            include("vues/v_reussiteEnvoi.php");
             include_once("vues/v_titreSuivi.html");
             $lesVisiteurs = $pdo->getLesVisiteurs();
             include_once("vues/v_rechercheComptableSuivi.php");

@@ -105,16 +105,16 @@ switch ($action) {
             $leVisiteur = $_REQUEST['idVisiteur'];
             $leMoisSelec = $_REQUEST['dateMois'];
             $lesFrais = $_REQUEST['lesFrais'];
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreValid.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableValid.php");
             if (lesQteFraisValides($lesFrais)) {
                 $pdo->majFraisForfait($leVisiteur, $leMoisSelec, $lesFrais);
             } else {
                 ajouterErreur("Les valeurs des frais doivent être numériques");
                 include("vues/v_erreurs.php");
             }
-            include_once("vues/v_sommaireComptable.php");
-            include_once("vues/v_titreValid.html");
-            $lesVisiteurs = $pdo->getLesVisiteurs();
-            include_once("vues/v_rechercheComptableValid.php");
             $leMois = substr($leMoisSelec, 4, 2);
             $lAnnee = substr($leMoisSelec, 0, 4);
             $laDateMois = $leMois . "/" . $lAnnee;
@@ -163,7 +163,7 @@ switch ($action) {
             $leMoisSelec = $_REQUEST['mois'];
             if (!empty($_REQUEST['id'])) {
                 $idFraisHF = $_REQUEST['id'];
-            }         
+            }
             $nouveauMois = ajoutUnMois($leMoisSelec);
             echo $nouveauMois;
             $pdo->reporterFraisHF($idFraisHF, $nouveauMois, $leVisiteur);

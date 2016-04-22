@@ -90,17 +90,17 @@
             </table>
         <?php } ?>
         <?php if ($idEtat == 'CL') { ?>
-            <div class="divPlein">
-                <a href="index.php?uc=suivreFiches&action=miseEnPaiement&&id=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisSelec ?>" 
-                   onclick="return confirm('Etes-vous sûr(e) de vouloir lancer la mise en paiement ? Aucune modification ne sera plus possible sur la fiche.');">Mettre la fiche de frais en paiement</a>
+            <div class="divPlein" style="padding-bottom:50px">
+                <a class="lien" href="index.php?uc=suivreFiches&action=miseEnPaiement&&id=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisSelec ?>" 
+                   onclick="return confirm('Etes-vous sûr(e) de vouloir lancer la mise en paiement ? Aucune modification ne sera plus possible sur la fiche.');">    Mettre la fiche de frais en paiement   </a>
             </div>
         <?php
         } else {
             if ($idEtat == 'VA') {
                 ?>
-                <div class="divPlein">
-                    <a href="index.php?uc=suivreFiches&action=remboursementEffectue&id=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisSelec ?>" 
-                       onclick="return confirm('Etes-vous sûr(e) de vouloir confirmer que cette fiche a bien été remboursée ?');">Confirmer le remboursement de la fiche de frais au visiteur</a>
+                <div class="divPlein" style="padding-bottom:50px">
+                    <a class="lien" href="index.php?uc=suivreFiches&action=remboursementEffectue&id=<?php echo $leVisiteur ?>&mois=<?php echo $leMoisSelec ?>" 
+                       onclick="return confirm('Etes-vous sûr(e) de vouloir confirmer que cette fiche a bien été remboursée ?');">    Confirmer le remboursement de la fiche de frais au visiteur    </a>
                 </div>
             <?php }
         }
