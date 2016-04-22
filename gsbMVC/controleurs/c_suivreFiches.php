@@ -33,7 +33,7 @@ switch ($action) {
                     $leVisiteurSelec = $pdo->getNomPrenomUser($leVisiteur);
                     $prenom = $leVisiteurSelec['prenom'];
                     $nom = $leVisiteurSelec['nom'];
-                    $lesFichesParVisiteur = $pdo->getLesFichesParVisiteurValid($leVisiteur);
+                    $lesFichesParVisiteur = $pdo->getLesFichesParVisiteurSuivi($leVisiteur);
                     if (empty($lesFichesParVisiteur)) {
                         ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce visiteur.");
                         include("vues/v_absenceDonnees.php");
@@ -44,7 +44,7 @@ switch ($action) {
                     if ((empty($leVisiteur) ) && ( (!empty($leMois)) && (!empty($lAnnee)) )) {
                         if (estDateValide($laDate)) {
                             $leMoisReq = getMois($laDate);
-                            $lesFichesParMois = $pdo->getLesFichesParMoisValid($leMoisReq);
+                            $lesFichesParMois = $pdo->getLesFichesParMoisSuivi($leMoisReq);
                             if (empty($lesFichesParMois)) {
                                 ajouterAbsenceDonnees("Il n'existe pas de fiche de frais à traiter pour ce mois.");
                                 include("vues/v_absenceDonnees.php");
@@ -94,7 +94,60 @@ switch ($action) {
             $libEtat = $lesInfosFicheFrais['libEtat'];
             $dateModif = $lesInfosFicheFrais['dateModif'];
             $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            $idEtat = $lesInfosFicheFrais['idEtat'];
             include("vues/v_miseEnPaiement.php");
+            break;
+        }
+
+    case 'miseEnPaiement' : {
+            $leVisiteur = $_REQUEST['id'];
+            $leMoisSelec = $_REQUEST['mois'];
+            $pdo->miseEnPaiementFiche($leVisiteur, $leMoisSelec);
+            ajouterReussiteEnvoi('La fiche sélectionnée a bien été mise en paiement.');
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreSuivi.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableSuivi.php");
+            $leMois = substr($leMoisSelec, 4, 2);
+            $lAnnee = substr($leMoisSelec, 0, 4);
+            $laDateMois = $leMois . "/" . $lAnnee;
+            $leVisiteurNom = $pdo->getNomPrenomUser($leVisiteur);
+            $nom = $leVisiteurNom['nom'];
+            $prenom = $leVisiteurNom['prenom'];
+            $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur, $leMoisSelec);
+            $lesFraisForfait = $pdo->getLesFraisForfait($leVisiteur, $leMoisSelec);
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur, $leMoisSelec);
+            $libEtat = $lesInfosFicheFrais['libEtat'];
+            $dateModif = $lesInfosFicheFrais['dateModif'];
+            $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            $idEtat = $lesInfosFicheFrais['idEtat'];
+            include("vues/v_miseEnPaiement.php");
+            break;
+        }
+
+    case 'remboursementEffectue' : {
+            $leVisiteur = $_REQUEST['id'];
+            $leMoisSelec = $_REQUEST['mois'];
+            $pdo->remboursementEffectueFiche($leVisiteur, $leMoisSelec);
+            ajouterReussiteEnvoi('La fiche sélectionnée a maintenant le statut de remboursée.');
+            include_once("vues/v_sommaireComptable.php");
+            include_once("vues/v_titreSuivi.html");
+            $lesVisiteurs = $pdo->getLesVisiteurs();
+            include_once("vues/v_rechercheComptableSuivi.php");
+            $leMois = substr($leMoisSelec, 4, 2);
+            $lAnnee = substr($leMoisSelec, 0, 4);
+            $laDateMois = $leMois . "/" . $lAnnee;
+            $leVisiteurNom = $pdo->getNomPrenomUser($leVisiteur);
+            $nom = $leVisiteurNom['nom'];
+            $prenom = $leVisiteurNom['prenom'];
+            $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($leVisiteur, $leMoisSelec);
+            $lesFraisForfait = $pdo->getLesFraisForfait($leVisiteur, $leMoisSelec);
+            $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($leVisiteur, $leMoisSelec);
+            $libEtat = $lesInfosFicheFrais['libEtat'];
+            $dateModif = $lesInfosFicheFrais['dateModif'];
+            $nbJustificatifs = $lesInfosFicheFrais['nbJustificatifs'];
+            $idEtat = $lesInfosFicheFrais['idEtat'];
+            include("vues/v_ficheLecture.php");
             break;
         }
     default : {

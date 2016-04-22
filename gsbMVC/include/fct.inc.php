@@ -200,6 +200,13 @@ function ajouterAbsenceDonnees($msg) {
     $_REQUEST['absencedonnees'][] = $msg;
 }
 
+function ajouterReussiteEnvoi($msg) {
+    if (!isset($_REQUEST['reussiteEnvoi'])) {
+        $_REQUEST['reussiteEnvoi'] = array();
+    }
+    $_REQUEST['reussiteEnvoi'][] = $msg;
+}
+
 /**
  * Retoune le nombre de lignes du tableau des erreurs 
 

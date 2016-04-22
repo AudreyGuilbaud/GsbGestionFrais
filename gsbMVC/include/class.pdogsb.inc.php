@@ -377,7 +377,44 @@ class PdoGsb {
      * 
      * @param string $idVisiteur 
      * @return tableau associatif retournant toutes les fiches à traiter ayant le
-     * statut VA et RB pour tous les mois pour le visiteur donné.
+     * statut CL et VA pour tous les mois pour le visiteur donné.
+     */
+    public function getLesFichesParVisiteurSuivi($idVisiteur) {
+        $req = "SELECT ficheFrais.dateModif as dateModif, etat.libelle as libEtat,
+                fichefrais.mois as mois
+                FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
+                WHERE (fichefrais.idVisiteur ='$idVisiteur' AND idEtat = 'CL')
+                    OR (fichefrais.idVisiteur = '$idVisiteur' AND idEtat = 'VA')
+                ORDER BY mois DESC ";
+        $res = PdoGsb::$monPdo->query($req);
+        $lesLignes = $res->fetchAll();
+        return $lesLignes;
+    }
+
+    /**
+     * 
+     * @param string $idMois
+     * @return tableau associatif retournant toutes les fiches à traiter ayant le
+     * statut CL et VA pour tous les mois pour le visiteur donné.
+     */
+    public function getLesFichesParMoisSuivi($idMois) {
+        $req = "SELECT fichefrais.dateModif as dateModif, etat.libelle as libEtat,
+                utilisateur.nom, utilisateur.prenom, utilisateur.id
+                FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
+                                 JOIN utilisateur ON utilisateur.id = ficheFrais.idvisiteur 
+                WHERE (idEtat = 'CL' AND fichefrais.mois = '$idMois') 
+                    OR(idEtat = 'VA' AND fichefrais.mois = '$idMois')
+                ORDER BY utilisateur.nom ";
+        $res = PdoGsb::$monPdo->query($req);
+        $lesLignes = $res->fetchAll();
+        return $lesLignes;
+    }
+
+    /**
+     * 
+     * @param string $idVisiteur 
+     * @return tableau associatif retournant toutes les fiches à traiter ayant le
+     * statut RB pour tous les mois pour le visiteur donné.
      */
     public function getLesFichesParVisiteurArchives($idVisiteur) {
         $req = "SELECT ficheFrais.dateModif as dateModif, etat.libelle as libEtat,
@@ -395,7 +432,7 @@ class PdoGsb {
      * 
      * @param string $idMois
      * @return tableau associatif retournant toutes les fiches à traiter ayant le
-     * statut VA et RB pour tous les mois pour le visiteur donné.
+     * statut RB pour tous les mois pour le visiteur donné.
      */
     public function getLesFichesParMoisArchives($idMois) {
         $req = "SELECT fichefrais.dateModif as dateModif, etat.libelle as libEtat,
@@ -433,6 +470,28 @@ class PdoGsb {
      */
     public function restaurerFraisHF($fraisHF) {
         $req = "UPDATE lignefraishorsforfait SET refuse=0 WHERE id='$fraisHF'";
+        PdoGsb::$monPdo->exec($req);
+    }
+
+    
+    /**
+     * Passe l'état d'une fiche à VA.
+     * @param string $idVisiteur
+     * @param int $mois
+     */
+    public function miseEnPaiementFiche($leVisiteur, $leMoisSelec){
+        $req = "UPDATE fichefrais SET idEtat = 'VA' WHERE idVisiteur='$leVisiteur' AND mois='$leMoisSelec'";
+        PdoGsb::$monPdo->exec($req);
+    }
+
+    
+    /**
+     * Passe l'état d'une fiche à RB.
+     * @param string $leVisiteur
+     * @param int $leMoisSelec
+     */
+    public function remboursementEffectueFiche($leVisiteur, $leMoisSelec) {
+        $req = "UPDATE fichefrais SET idEtat = 'RB' WHERE idVisiteur='$leVisiteur' AND mois='$leMoisSelec'";
         PdoGsb::$monPdo->exec($req);
     }
 

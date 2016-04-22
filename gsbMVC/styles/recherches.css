@@ -55,6 +55,16 @@
     border : solid 1px #df0000;   
 }
 
+.reussiteEnvoi {
+    width : 100%;
+    margin-top : 20px;
+    text-align : center;
+    font-size : 18px;
+    font-variant : small-caps ;
+    color : #df0000;
+    border : solid 1px #df0000;   
+}
+
 .selection {
     text-align: center ;
     position : relative ;
