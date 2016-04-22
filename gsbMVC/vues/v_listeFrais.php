@@ -48,7 +48,8 @@
                     <label for="txtLibelleHF">Nature du frais</label>
                     <input type="text" id="txtLibelleHF" name="libelle" size="30" maxlength="256" value="" class="barreTexte" />
                 </p>
-
+               
+     
                 <div class="boutonsBas2">
                     <div class="boutonsBas2">                           
                         <input type="submit" value="Ajouter" size="20" class="bouton valider" />                            
@@ -59,14 +60,14 @@
         </form>
     </div>
 
-    <?php if (!empty($lesFraisHorsForfait)) { ?>
+    
         <div class="divPlein">
-            <table>
+            <table style="width:100%">
                 <caption class="petitTitre">Descriptif des éléments hors forfait </caption>
                 <tr>
-                    <th class="titreColonne">Date</th>
-                    <th class="titreColonne">Montant</th> 
-                    <th class="titreColonne">Libellé</th>  
+                    <th class="titreColonneMini">Date</th>
+                    <th class="titreColonneMini">Montant</th> 
+                    <th class="titreColonneGrand">Libellé</th>  
                     <th>&nbsp;</th>              
                 </tr>
 
@@ -90,5 +91,5 @@
 
             </table>
         </div>
-    <?php } ?>
+  
 </div>

@@ -7,13 +7,13 @@
 
 
             <div id="loginDiv">
-                Login : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="login">Login :</label> 
                 <input id="login" type="text" name="login" maxlength="45"> <br/>
                 <br/>  
             </div>
 
             <div id="mdpDiv">
-                Mot de passe : &nbsp;
+                <label for="mdp">Mot de passe : </label>
                 <input id="mdp"  type="password"  name="mdp" maxlength="45"><br/>
                 <br/>   
             </div>               

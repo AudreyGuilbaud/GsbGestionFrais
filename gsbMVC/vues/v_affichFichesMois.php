@@ -1,5 +1,5 @@
 <div class = "divPlein">
-    <table>
+    <table style="width:100%">
         <caption class = "petitTitre2">Fiches de frais à contrôler pour le mois :  <?php echo $MoisAnnee ?> </caption>
         <tr>
             <th class = "titreColonneMini">Visiteur</th>

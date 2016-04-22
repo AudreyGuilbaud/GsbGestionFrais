@@ -1,5 +1,5 @@
 <div class = "divPlein">
-    <table>
+    <table style="width:100%">
         <caption class = "petitTitre2">Archives pour le mois :  <?php echo $MoisAnnee ?> </caption>
         <tr>
             <th class = "titreColonnePetit">Visiteur</th>
