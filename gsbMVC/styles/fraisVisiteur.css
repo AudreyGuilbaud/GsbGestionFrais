@@ -54,30 +54,26 @@
 }
 
 td.ligneFraisHF, td.ligneFraisHFPetit, td.ligneFraisHFSuppr {
-position : relative ;
-    display:inline-block;
-    display:block;
-    float:left;       
-    background-color:white;
-    color:#515151;
-    text-decoration:none;
-    text-align:center;
-    padding:5px;
-    height :20px;
+    background-color :#ffffff;
+    color : #515151;
+    height : 30px;
     border-color : #d7fcff;
     border-style: solid; 
     border-width: 1px;
-    padding-left : 10px ;
-    padding-right: 10px;
-    font-size: 14px;
-    margin-top: 10px;
+    text-align: center;
+    font-size : 14px;
 }
-td.ligneFraisHFPetit, td.ligneFraisHFSuppr {    
-    width:20%;   
+td.ligneFraisHFPetit { 
+    width:15%;   
 }
 
+td.ligneFraisHFSuppr {
+    width : 10%;
+}
+    
+
 td.ligneFraisHF {
-    width:60%;
+    width:50%;
 }
 
 td.ligneFraisHFSuppr {
@@ -101,14 +97,45 @@ td.ligneFraisHFSuppr a:hover {
     color : #d7fcff;
 }
 
-.titreColonne {
-    position : relative ;
+.titreColonneMini,.titreColonnePetit,.titreColonneGrand {
     background-color :#d7fcff;
     color : #515151;
     height : 30px;
     border-color : #d7fcff;
     border-style: solid; 
     border-width: 1px;
+}
+
+.titreColonneVide {
+    background-color :#ffffff;
+    color : #ffffff;
+    height : 30px;
+    border-color : #ffffff;
+    border-style: solid; 
+    border-width: 1px;
+    width : 10%;
+}
+
+.titreColonneVide2 {
+    background-color :#ffffff;
+    color : #ffffff;
+    height : 30px;
+    border-color : #ffffff;
+    border-style: solid; 
+    border-width: 1px;
+    width : 8%;
+}
+
+.titreColonneGrand {
+    width : 50%;
+}
+
+.titreColonnePetit {
+    width : 20%;
+}
+
+.titreColonneMini {
+    width : 15%;
 }
 
 .tableauLeger {

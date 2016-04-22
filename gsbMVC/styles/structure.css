@@ -1,7 +1,4 @@
 /* Styles des divisions principales de la page */
-*{
-   position : relative ; 
-}
 body{
     background-color: white;
     margin:0% 0%;
@@ -10,12 +7,10 @@ body{
     font-size:0.8em;
 }
 #page {
-    position : absolute;
     background-color:white;
     width : 80%;
     margin-left : 10% ;
     padding : 0.1em;
-    margin-top : 270px;
 }
 
 #entete{

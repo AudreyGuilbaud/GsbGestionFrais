@@ -2,9 +2,9 @@
     <table>
         <caption class = "petitTitre2">Fiches de frais à mettre en paiement pour le mois :  <?php echo $MoisAnnee ?> </caption>
         <tr>
-            <th class = "titreColonne">Visiteur</th>
-            <th class = "titreColonne">Dernière modification</th>
-            <th class = "titreColonne">Etat</th>
+            <th class = "titreColonnePetit">Visiteur</th>
+            <th class = "titreColonnePetit">Dernière modification</th>
+            <th class = "titreColonneGrand">Etat</th>
             <th>&nbsp;
             </th>
         </tr> <?php

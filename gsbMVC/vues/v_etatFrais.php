@@ -22,7 +22,7 @@
             foreach ($lesFraisForfait as $unFraisForfait) {
                 $libelle = $unFraisForfait['libelle'];
                 ?>	
-                <th class="titreColonne"> <?php echo $libelle ?></th>
+                <th class="titreColonnePetit"> <?php echo $libelle ?></th>
                 <?php
             }
             ?>
@@ -38,28 +38,31 @@
             ?>
         </tr>
     </table>
-    <table class="divPlein">
-        <caption class="petitTitre2">Eléments non-forfaitisés </caption> 
-        <tr>
-            <th class="titreColonne">Date</th>
-            <th class="titreColonne">Montant</th>
-            <th class='titreColonne'>Libellé</th>                
-        </tr>
-        <?php
-        foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
-            $date = $unFraisHorsForfait['date'];
-            $libelle = $unFraisHorsForfait['libelle'];
-            $montant = $unFraisHorsForfait['montant'];
-            ?>
+
+    <?php if (!empty($lesFraisHorsForfait)) { ?>
+        <table class="divPlein">
+            <caption class="petitTitre2">Eléments non-forfaitisés </caption> 
             <tr>
-                <td class="ligneFraisHFPetit"><?php echo $date ?></td>
-                <td class="ligneFraisHFPetit"><?php echo $montant ?></td>
-                <td class="ligneFraisHF"><?php echo $libelle ?></td>
+                <th class="titreColonneMini">Date</th>
+                <th class="titreColonneMini">Montant</th>
+                <th class='titreColonneGrand'>Libellé</th>                
             </tr>
             <?php
-        }
-        ?>
-    </table>
+            foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
+                $date = $unFraisHorsForfait['date'];
+                $libelle = $unFraisHorsForfait['libelle'];
+                $montant = $unFraisHorsForfait['montant'];
+                ?>
+                <tr>
+                    <td class="ligneFraisHFPetit"><?php echo $date ?></td>
+                    <td class="ligneFraisHFPetit"><?php echo $montant ?></td>
+                    <td class="ligneFraisHF"><?php echo $libelle ?></td>
+                </tr>
+                <?php
+            }
+            ?>
+        </table>
+    <?php } ?>
 </div>
 
 

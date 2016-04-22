@@ -3,9 +3,9 @@
     <table>
         <caption class = "petitTitre2">Archives pour <?php echo $prenom . " " . $nom ?> </caption>
         <tr>
-            <th class = "titreColonne">Mois</th>
-            <th class = "titreColonne">Dernière modification</th>
-            <th class = "titreColonne">Etat</th>
+            <th class = "titreColonnePetit">Mois</th>
+            <th class = "titreColonnePetit">Dernière modification</th>
+            <th class = "titreColonneGrand">Etat</th>
             <th>&nbsp;
             </th>
         </tr> <?php

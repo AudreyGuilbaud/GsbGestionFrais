@@ -1,11 +1,11 @@
 <div class = "divPlein">
 
-    <table>
+    <table style="width:100%">
         <caption class = "petitTitre2">Fiches de frais à contrôler pour <?php echo $prenom . " " . $nom ?> </caption>
         <tr>
-            <th class = "titreColonne">Mois</th>
-            <th class = "titreColonne">Dernière modification</th>
-            <th class = "titreColonne">Etat</th>
+            <th class = "titreColonnePetit">Mois</th>
+            <th class = "titreColonnePetit">Dernière modification</th>
+            <th class = "titreColonneGrand">Etat</th>
             <th>&nbsp;
             </th>
         </tr> <?php
@@ -18,14 +18,12 @@
             ?>  
 
             <tr>
-
                 <td class="ligneFraisHFPetit"> <?php echo $numMois . "/" . $numAnnee ?></td>
                 <td class="ligneFraisHFPetit"><?php echo dateAnglaisVersFrancais($dateModif) ?> </td>
                 <td class="ligneFraisHF"><?php echo $libEtat ?></td>
                 <td class="ligneFraisHFSuppr">
                     <a href="index.php?uc=validerFiches&action=ficheSelectionnee&visiteur=<?php echo $leVisiteur ?>&mois=<?php echo $mois ?>" 
                        id="accesFiches" >Accéder</a></td> 
-
             </tr>
 
             <?php
