@@ -17,10 +17,10 @@
  */
 class PdoGsb {
 
-    private static $serveur = 'mysql:host=db623112560.db.1and1.com';
-    private static $bdd = 'dbname=db623112560';
-    private static $user = 'dbo623112560';
-    private static $mdp = 'ppe1Gsb';
+    private static $serveur = 'mysql:host=localhost';
+    private static $bdd = 'dbname=gsb_frais';
+    private static $user = 'root';
+    private static $mdp = 'ppe';
     private static $monPdo;
     private static $monPdoGsb = null;
 
