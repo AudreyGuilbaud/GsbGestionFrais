@@ -2,8 +2,8 @@
 /**
  * Fonctions pour l'application GSB
 
- * @package default
- * @author Cheri Bibi
+ * @package include
+ * @author Existant + Audrey Guilbaud
  * @version    1.0
  */
 
@@ -191,6 +191,11 @@ function ajouterErreur($msg) {
     $_REQUEST['erreurs'][] = $msg;
 }
 
+/**
+ * Ajoute une absence de données au tableau des erreurs 
+
+ * @param $msg : le libellé de l'absence de données
+ */
 function ajouterAbsenceDonnees($msg) {
     if (!isset($_REQUEST['absencedonnees'])) {
         $_REQUEST['absencedonnees'] = array();
@@ -198,6 +203,11 @@ function ajouterAbsenceDonnees($msg) {
     $_REQUEST['absencedonnees'][] = $msg;
 }
 
+/**
+ * Ajoute un message de réussite au tableau des erreurs 
+
+ * @param $msg : le libellé de la réussite
+ */
 function ajouterReussiteEnvoi($msg) {
     if (!isset($_REQUEST['reussiteEnvoi'])) {
         $_REQUEST['reussiteEnvoi'] = array();
