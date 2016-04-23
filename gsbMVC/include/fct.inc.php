@@ -12,7 +12,7 @@
  * @return vrai ou faux 
  */
 function estConnecte() {
-    return isset($_SESSION['idVisiteur']);
+    return isset($_SESSION['session_idVisiteur']);
 }
 
 /**
@@ -23,9 +23,9 @@ function estConnecte() {
  * @param $prenom
  */
 function connecter($id, $nom, $prenom) {
-    $_SESSION['idVisiteur'] = $id;
-    $_SESSION['nom'] = $nom;
-    $_SESSION['prenom'] = $prenom;
+    $_SESSION['session_idVisiteur'] = $id;
+    $_SESSION['session_nom'] = $nom;
+    $_SESSION['session_prenom'] = $prenom;
 }
 
 /**
@@ -140,7 +140,6 @@ function estDateValide($date) {
 
 /**
  * Vérifie que le tableau de frais ne contient que des valeurs numériques 
-
  * @param $lesFrais 
  * @return vrai ou faux
  */

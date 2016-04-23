@@ -1,7 +1,7 @@
-﻿<?php
+<?php
 include("vues/v_sommaireVisiteur.php");
 $action = $_REQUEST['action'];
-$idVisiteur = $_SESSION['idVisiteur'];
+$idVisiteur = $_SESSION['session_idVisiteur'];
 switch($action){
 	case 'selectionnerMois':{
 		$lesMois=$pdo->getLesMoisDisponibles($idVisiteur);

@@ -2,7 +2,7 @@
 <div id="menuhaut">
     <div class="nomVisit">
 
-        <?php echo "Bienvenue " . $_SESSION['prenom'] . "  " . $_SESSION['nom'] . " !" ?>
+        <?php echo "Bienvenue " . $_SESSION['session_prenom'] . "  " . $_SESSION['session_nom'] . " !"  ?>
 
     </div>  
     <ul class="menuHaut">			
