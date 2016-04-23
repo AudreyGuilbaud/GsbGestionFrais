@@ -292,7 +292,7 @@ class PdoGsb {
      */
     public function getLesInfosFicheFrais($idVisiteur, $mois) {
         $req = "select fichefrais.idEtat as idEtat, fichefrais.dateModif as dateModif, fichefrais.nbJustificatifs as nbJustificatifs, 
-			fichefrais.montantValide as montantValide, etat.libelle as libEtat from  fichefrais inner join Etat on fichefrais.idEtat = Etat.id 
+			fichefrais.montantValide as montantValide, etat.libelle as libEtat from  fichefrais inner join etat on fichefrais.idEtat = etat.id 
 			where fichefrais.idVisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
         $res = PdoGsb::$monPdo->query($req);
         $laLigne = $res->fetch();
@@ -419,7 +419,7 @@ class PdoGsb {
     public function getLesFichesParVisiteurArchives($idVisiteur) {
         $req = "SELECT fichefrais.dateModif as dateModif, etat.libelle as libEtat,
                 fichefrais.mois as mois
-                FROM  fichefrais JOIN etat on ficheFrais.idEtat = etat.id 
+                FROM  fichefrais JOIN etat on fichefrais.idEtat = etat.id 
                 WHERE fichefrais.idVisiteur ='$idVisiteur'
                 AND idetat = 'RB'
                 ORDER BY mois DESC ";

@@ -13,7 +13,7 @@
             $libEtat = $uneFiche['libEtat'];
             $nom = $uneFiche['nom'];
             $prenom = $uneFiche['prenom'];
-            $leVisiteur= $uneFiche['id'];
+            $leVisiteur= $uneFiche['visiteur'];
             ?>   	
             <tr>
                 <td class="ligneFraisHFPetit"> <?php echo $prenom . " " . $nom ?></td>
