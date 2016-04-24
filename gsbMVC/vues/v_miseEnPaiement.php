@@ -21,7 +21,6 @@
             <td class="tableauLeger"><?php echo $nbJustificatifs ?> </td>
         </tr>
     </table>
-    <form method="POST" action="index.php?uc=validerFiches&action=modifFraisForfait">
         <table class="divPlein">
             <input class="inputPetit" hidden name="idVisiteur" type="text" value="<?php echo $leVisiteur ?>"> 
             <input class="inputPetit" hidden name="dateMois" type="text" value="<?php echo $leMoisSelec ?>"> 

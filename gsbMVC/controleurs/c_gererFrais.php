@@ -1,6 +1,5 @@
 <?php
 
-if(estConnecte()) {
 include("vues/v_sommaireVisiteur.php");
 $idVisiteur = $_SESSION['session_idVisiteur'];
 $mois = getMois(date("d/m/Y"));
@@ -45,5 +44,4 @@ switch ($action) {
 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur, $mois);
 $lesFraisForfait = $pdo->getLesFraisForfait($idVisiteur, $mois);
 include("vues/v_listeFrais.php");
-}
 ?>
