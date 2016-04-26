@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Contrôleur de la partie Comptables de l'application : gère la mise en paiement et la confirmation de remboursement.
+ * @package controleurs
+ * @author Existant 
+ * @version 1.0
+ * Gère la recherche de fiche par visiteur ou par mois : affiche la fiche sélectionnée ou une liste de fiches sélectionnées
+ * + gestion des erreurs de remplissage du formulaire.
+ * Gère la mise en paiement et la confirmation de remboursement des fiches avec affichage des fiches en lecture.
+ */
 if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = 'choixFiche';
 }

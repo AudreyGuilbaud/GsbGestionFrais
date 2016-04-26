@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Contrôleur de la partie Comptables de l'application : gère le contrôle des fiches de frais par le comptable.
+ * @package controleurs
+ * @author Audrey Guilbaud
+ * @version 1.0
+ * Gère la recherche des fiches de frais à traiter (affichage d'une fiche ou d'une liste de fiches avec recherche
+ * par visiteur et/ou par mois) + gestion des erreurs de remplissage de formulaire.
+ * Dans la fiche : gère la modification des frais forfaitisés, le refus, la restauration et le report des frais non forfaitisés.
+ */
 if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = 'choixFiche';
 }

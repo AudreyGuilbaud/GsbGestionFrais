@@ -480,7 +480,7 @@ class PdoGsb {
      * @param int $mois
      */
     public function miseEnPaiementFiche($leVisiteur, $leMoisSelec){
-        $req = "UPDATE fichefrais SET idEtat = 'VA' WHERE idVisiteur='$leVisiteur' AND mois='$leMoisSelec'";
+        $req = "UPDATE fichefrais SET idEtat = 'VA', dateModif=now() WHERE idVisiteur='$leVisiteur' AND mois='$leMoisSelec'";
         PdoGsb::$monPdo->exec($req);
     }
 
@@ -491,7 +491,7 @@ class PdoGsb {
      * @param int $leMoisSelec
      */
     public function remboursementEffectueFiche($leVisiteur, $leMoisSelec) {
-        $req = "UPDATE fichefrais SET idEtat = 'RB' WHERE idVisiteur='$leVisiteur' AND mois='$leMoisSelec'";
+        $req = "UPDATE fichefrais SET idEtat = 'RB', dateModif=now() WHERE idVisiteur='$leVisiteur' AND mois='$leMoisSelec'";
         PdoGsb::$monPdo->exec($req);
     }
 

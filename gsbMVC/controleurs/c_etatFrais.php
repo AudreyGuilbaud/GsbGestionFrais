@@ -1,4 +1,10 @@
 <?php
+/**
+ * Contrôleur de la partie Visiteur de l'application : gère le suivi des fiches pour le visiteur.
+ * @package controleurs
+ * @author Existant 
+ * @version 1.0
+ */
 include("vues/v_sommaireVisiteur.php");
 $action = $_REQUEST['action'];
 $idVisiteur = $_SESSION['session_idVisiteur'];

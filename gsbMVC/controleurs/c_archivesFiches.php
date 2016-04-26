@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Contrôleur de la partie Comptables de l'application : affiche toutes les fiches remboursées.
+ * @package controleurs
+ * @author Audrey Guilbaud
+ * @version 1.0
+ * Affiche une zone de recherche par visiteur et/ou par mois pour les fiches remboursées.
+ * Affiche la fiche choisie ou une liste de fiches correspondantes au choix du comptable avec un bouton permettant d'accéder à une des fiches.
+ * Gère les erreurs du remplissage du formulaire de recherche.
+ */
 if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = 'choixFiche';
 }

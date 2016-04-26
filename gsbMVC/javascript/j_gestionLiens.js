@@ -1,8 +1,3 @@
-/*document.getElementById('accesFiches').onclick = function(){
- document.getElementById('formHidden').submit() ;
- };*/
-
-
 function disabledCondi() {
     $('.pourdisabled').attr('disabled', false);
     $('.modif').attr('hidden', false);

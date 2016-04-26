@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * Contrôleur gérant la connexion de l'utilisateur.
+ * @package controleurs
+ * @author Existant + Audrey Guilbaud
+ * @version 2.0
+ * Affiche l'écran de connexion et vérifie les informations de connexion de l'utilisateur.
+ * Affiche les erreurs d'identification ou affiche le bon menu automatiquement en fonction de la nature de l'utilisateur (visiteur ou comptable).
+ */
 if (!isset($_REQUEST['action'])) {
     $_REQUEST['action'] = 'demandeConnexion';
 }

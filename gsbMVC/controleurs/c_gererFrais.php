@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Contrôleur de la partie Visiteur de l'application : gère la saisie des fiches de frais pour le visiteur.
+ * @package controleurs
+ * @author Existant 
+ * @version 1.0
+ * Affiche la fiche de frais dont la saisie est en cours pour le visiteur connecté ou en crée une nouvelle en 
+ * cas de fiche de frais inexistante pour le mois.
+ * Gère l'ajout et la modification des frais forfaitisés, de frais non forfaitisés ainsi que la suppression des
+ * frais non forfaitisés.
+ */
 include("vues/v_sommaireVisiteur.php");
 $idVisiteur = $_SESSION['session_idVisiteur'];
 $mois = getMois(date("d/m/Y"));
